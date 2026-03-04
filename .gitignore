@@ -1,0 +1,22 @@
+# Stitch and temporary artifacts
+*.png
+*.json
+build.py
+test_build.py
+next-prompt.md
+queue/
+site/public/contacts-footer.html
+site/public/hero-building.html
+site/public/hero-cleaning.html
+site/public/services-building.html
+site/public/services-cleaning.html
+site/public/trust-block.html
+
+# Logs and system files
+.gemini/
+.agent/
+.agents/
+brain/
+*.log
+.DS_Store
+Thumbs.db
