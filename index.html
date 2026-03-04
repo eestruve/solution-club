@@ -1,760 +1,1028 @@
 <!DOCTYPE html>
 
-<html lang="ru"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=block"
+        rel="stylesheet" />
+
+    <style>
+        :root {
+            --primary-color: #FCEA0E;
+        }
+
+        /* Системные цвета для тем */
+        .theme-cleaning {
+            --primary-color: #FCEA0E;
+            --text-on-primary: #222222;
+        }
+
+        .theme-building {
+            --primary-color: #E30613;
+            --text-on-primary: #FFFFFF;
+        }
+
+        .material-symbols-outlined {
+            width: 1em;
+            overflow: hidden;
+            white-space: nowrap;
+            color: transparent;
+        }
+
+        /* Показываем иконку только когда шрифт загружен */
+        .fonts-loaded .material-symbols-outlined {
+            color: inherit;
+        }
+
+        /* Для мгновенных иконок через SVG */
+        .icon-svg {
+            fill: currentColor;
+        }
+
+        /* Вспомогательный класс для контрастного текста на кнопках */
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: var(--text-on-primary);
+        }
+
+        /* Нейтральная тень без синего оттенка */
+        .whisper-shadow {
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.1);
+        }
+
+        .hover-whisper-shadow:hover {
+            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.15);
+        }
+    </style>
+
+    <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
             theme: {
                 extend: {
                     colors: {
-                        "primary": "var(--primary-color, #2a9d90)",
+                        "primary": "var(--primary-color, #FCEA0E)",
                         "navy-deep": "#1B2A4A",
                         "background-light": "#f6f8f8",
                         "background-dark": "#131f1e",
                         "cloud": "#F8F9FA"
                     },
-                    fontFamily: {
-                        "display": ["Inter", "sans-serif"]
-                    },
-                    borderRadius: {
-                        "DEFAULT": "0.5rem",
-                        "lg": "1rem",
-                        "xl": "1.5rem",
-                        "full": "9999px"
-                    },
+                    fontFamily: { "display": ["Inter", "sans-serif"] },
+                    borderRadius: { "DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px" },
                 },
             },
         }
+        // Ждем загрузки шрифтов
+        document.fonts.ready.then(() => {
+            document.documentElement.classList.add('fonts-loaded');
+        });
     </script>
-<title>SOLUTION Home Services</title>
+    <title>SOLUTION Home Services</title>
 </head>
-<body class="font-display bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100">
-<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
-<header class="flex items-center justify-between border-b border-slate-100 bg-white px-6 py-4 md:px-20 lg:px-40 dark:bg-slate-900 dark:border-slate-800">
-<div class="flex items-center gap-3">
-<div class="text-navy-deep dark:text-primary">
-<span class="material-symbols-outlined text-3xl">diamond</span>
-</div>
-<h2 class="text-navy-deep dark:text-white text-xl font-extrabold tracking-tight uppercase">SOLUTION</h2>
-</div>
-<div class="flex items-center gap-6 md:gap-8">
-<a class="hidden md:block text-navy-deep dark:text-slate-200 text-sm font-semibold hover:text-primary transition-colors" href="tel:+79295720814">
+
+<body
+    class="font-display bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 theme-cleaning">
+    <div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+        <header
+            class="flex items-center justify-between border-b border-slate-100 bg-white px-6 py-4 md:px-20 lg:px-40 dark:bg-slate-900 dark:border-slate-800">
+            <div class="flex items-center gap-3">
+                <div class="text-[#222222] dark:text-white">
+                    <!-- New House Logo SVG -->
+                    <svg class="h-10 w-auto" viewBox="0 0 160 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Roof -->
+                        <path d="M10 40 L40 10 L70 40" stroke="currentColor" stroke-width="4" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <!-- Chimney -->
+                        <path d="M55 25 V15 H62 V32" stroke="currentColor" stroke-width="4" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <!-- Window (Yellow panes) -->
+                        <rect x="36" y="24" width="4" height="4" fill="#FCEA0E" />
+                        <rect x="42" y="24" width="4" height="4" fill="#FCEA0E" />
+                        <rect x="36" y="30" width="4" height="4" fill="#FCEA0E" />
+                        <rect x="42" y="30" width="4" height="4" fill="#FCEA0E" />
+                        <!-- SOLUTION Text -->
+                        <text x="0" y="70" font-family="Inter, sans-serif" font-weight="900" font-size="28"
+                            fill="currentColor">SOLUTION</text>
+                    </svg>
+                </div>
+            </div>
+            <div class="flex items-center gap-6 md:gap-8">
+                <a class="hidden md:block text-[#222222] dark:text-slate-200 text-sm font-semibold hover:text-primary transition-colors"
+                    href="tel:+79295720814">
                     +7 (929) 572-08-14
                 </a>
-<button class="flex items-center justify-center rounded-lg h-12 w-12 bg-primary/10 text-primary hover:bg-primary hover:text-white transition-all">
-<span class="material-symbols-outlined">send</span>
-</button>
-</div>
-</header>
-<main class="flex-1">
-    
-    <section class="relative bg-[#1B2A4A] overflow-hidden w-full pt-12 pb-16 md:pt-16 md:pb-20 flex flex-col items-center min-h-[500px]">
-        <!-- Backgrounds -->
-        <div id="cleaning-bg" class="absolute inset-0 transition-opacity duration-700 ease-in-out opacity-100 z-0">
-            <div class="absolute inset-0 bg-black/60 z-10"></div>
-            <img src="https://images.unsplash.com/photo-1527030280862-64139fba04ca?q=80&w=2070&auto=format&fit=crop" alt="Идеально чистая гостиная" class="absolute w-full h-full object-cover" />
-        </div>
-        <div id="building-bg" class="absolute inset-0 transition-opacity duration-700 ease-in-out opacity-0 z-0">
-            <div class="absolute inset-0 bg-navy-deep/80 z-10"></div>
-            <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=2071&auto=format&fit=crop" alt="Современное строительство и ремонт" class="absolute w-full h-full object-cover" />
-        </div>
-
-        <!-- Content Container -->
-        <div class="z-10 w-full max-w-5xl px-6 flex flex-col items-center flex-1">
-            <!-- Toggle button -->
-            <div class="mb-8 inline-flex p-1.5 bg-white/5 backdrop-blur-md rounded-full border border-white/10 relative">
-                <button id="btn-cleaning" class="px-8 py-2.5 rounded-full bg-[#2a9d90] text-white text-sm font-bold shadow-lg transition-all duration-300 relative z-10" onclick="switchTab('cleaning')">
-                    Чистота
-                </button>
-                <button id="btn-building" class="px-8 py-2.5 rounded-full text-white/50 hover:text-white text-sm font-bold transition-all duration-300 relative z-10" onclick="switchTab('building')">
-                    Ремонт
+                <button
+                    class="flex items-center justify-center rounded-lg h-12 w-12 bg-primary/10 text-[#222222] dark:text-primary hover:bg-primary hover:text-white transition-all">
+                    <!-- Inline SVG Send/Telegram Icon -->
+                    <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M22 2L11 13" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <path d="M22 2L15 22L11 13L2 9L22 2Z" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
                 </button>
             </div>
+        </header>
+        <main class="flex-1">
 
-            <!-- Grid for overlapping content to ensure fixed size -->
-            <div class="grid grid-cols-1 grid-rows-1 w-full text-center flex-1">
-                
-                <!-- Cleaning Content -->
-                <div id="cleaning-content" aria-hidden="false" class="col-start-1 row-start-1 flex flex-col items-center justify-between transition-all duration-500 ease-out opacity-100 transform translate-y-0 scale-100 w-full h-full">
-                    <div class="flex flex-col items-center justify-center flex-1">
-                        <h1 class="text-white text-4xl md:text-5xl lg:text-6xl font-black leading-[1.1] tracking-tight mb-4">
-                            Ваш дом — всегда идеальный
-                        </h1>
-                        <p class="text-white/80 text-lg md:text-xl font-normal max-w-2xl mx-auto leading-relaxed mb-8">
-                            Премиальный сервис для вашего дома в Москве. Гарантия качества с 2010 года. Ощутите новый стандарт чистоты и безупречного комфорта.
-                        </p>
-                    </div>
-                    <div class="flex flex-col sm:flex-row items-center justify-center gap-6 h-14 w-full mt-auto">
-                        <a href="https://t.me/solution" class="flex items-center justify-center gap-2 bg-[#2a9d90] hover:bg-[#2a9d90]/90 text-white font-bold h-full px-8 rounded-lg shadow-xl shadow-[#2a9d90]/20 transition-all w-full sm:w-auto">
-                            <span class="material-symbols-outlined text-xl">send</span>
-                            <span>Написать в Telegram</span>
-                        </a>
-                        <a class="text-white font-bold text-lg border-b-2 border-transparent hover:border-[#2a9d90] transition-all py-1" href="tel:+74955326009" style="border-bottom-color: rgba(255,255,255,0.3);">
-                            +7 (495) 532-60-09
-                        </a>
-                    </div>
+            <section
+                class="relative bg-[#1B2A4A] overflow-hidden w-full pt-12 pb-16 md:pt-16 md:pb-20 flex flex-col items-center min-h-[500px]">
+                <!-- Backgrounds -->
+                <div id="cleaning-bg"
+                    class="absolute inset-0 transition-opacity duration-700 ease-in-out opacity-100 z-0">
+                    <div class="absolute inset-0 bg-black/60 z-10"></div>
+                    <img src="https://images.unsplash.com/photo-1527030280862-64139fba04ca?q=80&w=2070&auto=format&fit=crop"
+                        alt="Идеально чистая гостиная" class="absolute w-full h-full object-cover" />
+                </div>
+                <div id="building-bg"
+                    class="absolute inset-0 transition-opacity duration-700 ease-in-out opacity-0 z-0">
+                    <div class="absolute inset-0 bg-navy-deep/80 z-10"></div>
+                    <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=2071&auto=format&fit=crop"
+                        alt="Современное строительство и ремонт" class="absolute w-full h-full object-cover" />
                 </div>
 
-                <!-- Building Content -->
-                <div id="building-content" aria-hidden="true" inert class="col-start-1 row-start-1 flex flex-col items-center justify-between transition-all duration-500 ease-out opacity-0 pointer-events-none transform translate-y-4 scale-95 w-full h-full">
-                    <div class="flex flex-col items-center justify-center flex-1">
-                        <h2 class="text-white text-4xl md:text-5xl lg:text-6xl font-black leading-[1.1] tracking-tight mb-4">
-                            Строим и ремонтируем под ключ
-                        </h2>
-                        <p class="text-white/80 text-lg md:text-xl font-normal max-w-2xl mx-auto leading-relaxed mb-8">
-                            Полный цикл строительных работ от проектирования до сдачи объекта. Гарантия 2 года. Квалифицированный персонал с 2010 года.
-                        </p>
+                <!-- Content Container -->
+                <div class="z-10 w-full max-w-5xl px-6 flex flex-col items-center flex-1">
+                    <!-- Toggle button -->
+                    <div
+                        class="mb-8 inline-flex p-1.5 bg-white/5 backdrop-blur-md rounded-full border border-white/10 relative">
+                        <button id="btn-cleaning"
+                            class="px-8 py-2.5 rounded-full bg-[#FCEA0E] text-[#222222] text-sm font-bold shadow-lg transition-all duration-300 relative z-10"
+                            onclick="switchTab('cleaning')">
+                            Чистота
+                        </button>
+                        <button id="btn-building"
+                            class="px-8 py-2.5 rounded-full text-white/50 hover:text-white text-sm font-bold transition-all duration-300 relative z-10"
+                            onclick="switchTab('building')">
+                            Ремонт
+                        </button>
                     </div>
-                    <div class="flex flex-col sm:flex-row items-center justify-center gap-6 h-14 w-full mt-auto">
-                        <a href="https://t.me/solution" class="flex items-center justify-center gap-2 px-10 h-full bg-[#e8c468] text-[#1B2A4A] text-lg font-bold rounded-xl hover:scale-[1.02] transition-transform shadow-xl shadow-[#e8c468]/20 w-full sm:w-auto">
-                            <span class="material-symbols-outlined text-xl">send</span>
-                            <span>Написать в Telegram</span>
-                        </a>
-                        <a class="text-white font-bold text-lg border-b-2 border-transparent hover:border-[#e8c468] transition-all py-1" href="tel:+74955326009" style="border-bottom-color: rgba(255,255,255,0.3);">
-                            +7 (495) 532-60-09
-                        </a>
+
+                    <!-- Grid for overlapping content to ensure fixed size -->
+                    <div class="grid grid-cols-1 grid-rows-1 w-full text-center flex-1">
+
+                        <!-- Cleaning Content -->
+                        <div id="cleaning-content" aria-hidden="false"
+                            class="col-start-1 row-start-1 flex flex-col items-center justify-between transition-all duration-500 ease-out opacity-100 transform translate-y-0 scale-100 w-full h-full">
+                            <div class="flex flex-col items-center justify-center flex-1">
+                                <h1
+                                    class="text-white text-4xl md:text-5xl lg:text-6xl font-black leading-[1.1] tracking-tight mb-4">
+                                    Ваш дом — всегда идеальный
+                                </h1>
+                                <p
+                                    class="text-white/90 text-lg md:text-xl font-normal max-w-2xl mx-auto leading-relaxed mb-8">
+                                    Премиальный сервис для вашего дома в Москве. Гарантия качества с 2010 года. Ощутите
+                                    новый стандарт чистоты и безупречного комфорта.
+                                </p>
+                            </div>
+                            <div
+                                class="flex flex-col sm:flex-row items-center justify-center gap-6 h-14 w-full mt-auto">
+                                <a href="https://t.me/solution"
+                                    class="flex items-center justify-center gap-2 bg-[#FCEA0E] hover:bg-[#FCEA0E]/90 text-[#222222] font-bold h-full px-8 rounded-lg shadow-xl shadow-[#FCEA0E]/20 transition-all w-full sm:w-auto">
+                                    <!-- Inline SVG Telegram -->
+                                    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M22 2L11 13" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                        <path d="M22 2L15 22L11 13L2 9L22 2Z" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                    <span>Написать в Telegram</span>
+                                </a>
+                                <a class="text-white font-bold text-lg border-b-2 border-white/30 hover:border-[#FCEA0E] hover:text-[#FCEA0E] transition-all py-1"
+                                    href="tel:+74955326009">
+                                    +7 (495) 532-60-09
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Building Content -->
+                        <div id="building-content" aria-hidden="true" inert
+                            class="col-start-1 row-start-1 flex flex-col items-center justify-between transition-all duration-500 ease-out opacity-0 pointer-events-none transform translate-y-4 scale-95 w-full h-full">
+                            <div class="flex flex-col items-center justify-center flex-1">
+                                <h2
+                                    class="text-white text-4xl md:text-5xl lg:text-6xl font-black leading-[1.1] tracking-tight mb-4">
+                                    Строим и ремонтируем под ключ
+                                </h2>
+                                <p
+                                    class="text-white/90 text-lg md:text-xl font-normal max-w-2xl mx-auto leading-relaxed mb-8">
+                                    Полный цикл строительных работ от проектирования до сдачи объекта. Гарантия 2 года.
+                                    Квалифицированный персонал с 2010 года.
+                                </p>
+                            </div>
+                            <div
+                                class="flex flex-col sm:flex-row items-center justify-center gap-6 h-14 w-full mt-auto">
+                                <a href="https://t.me/solution"
+                                    class="flex items-center justify-center gap-2 px-10 h-full bg-[#E30613] text-white text-lg font-bold rounded-xl hover:scale-[1.02] transition-transform shadow-xl shadow-[#E30613]/20 w-full sm:w-auto">
+                                    <!-- Inline SVG Telegram -->
+                                    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M22 2L11 13" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                        <path d="M22 2L15 22L11 13L2 9L22 2Z" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                    <span>Написать в Telegram</span>
+                                </a>
+                                <a class="text-white font-bold text-lg border-b-2 border-white/30 hover:border-[#E30613] transition-all py-1"
+                                    href="tel:+74955326009">
+                                    +7 (495) 532-60-09
+                                </a>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
-                
-            </div>
-        </div>
-    </section>
-    
-    <div id="cleaning-services" class="transition-all duration-500 ease-in-out">
-        
-<!-- Hero/Section Header -->
-<section class="bg-cloud-soft dark:bg-background-dark/50 py-16 px-4 text-center">
-<div class="max-w-4xl mx-auto space-y-4">
-<span class="text-primary font-bold text-sm uppercase tracking-widest block">Услуги клининга</span>
-<h1 class="text-navy-deep dark:text-white text-4xl md:text-5xl font-black leading-tight tracking-tight">Выбирайте чистоту без забот</h1>
-<p class="text-steel-gray dark:text-slate-400 text-lg max-w-2xl mx-auto">Профессиональный клининг в Москве для вашего дома и офиса. Гарантируем качество и внимание к каждой детали.</p>
-</div>
-</section>
-<!-- Pricing Grid Section -->
-<section class="px-4 md:px-10 lg:px-40 py-12">
-<div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-[1200px] mx-auto">
-<!-- Card 1: Поддерживающая -->
-<div class="flex flex-col gap-6 rounded-xl bg-white dark:bg-slate-800 p-8 shadow-sm border border-slate-100 dark:border-slate-700 hover:shadow-lg transition-shadow">
-<div class="space-y-2">
-<h3 class="text-navy-deep dark:text-white text-2xl font-bold">Поддерживающая</h3>
-<div class="flex items-baseline gap-1">
-<span class="text-slate-500 text-sm font-medium">от</span>
-<span class="text-navy-deep dark:text-white text-3xl font-black">4 390</span>
-<span class="text-slate-500 text-sm font-bold">руб.</span>
-</div>
-</div>
-<div class="flex flex-col gap-4 flex-grow">
-<div class="flex items-start gap-3 text-slate-600 dark:text-slate-300 text-sm">
-<span class="material-symbols-outlined text-primary text-[20px]">check_circle</span>
+            </section>
+
+            <div id="cleaning-services" class="transition-all duration-500 ease-in-out">
+
+                <!-- Hero/Section Header -->
+                <section class="bg-cloud-soft dark:bg-background-dark/50 py-16 px-4 text-center">
+                    <div class="max-w-4xl mx-auto space-y-4">
+                        <span class="text-[#FCEA0E] font-bold text-sm uppercase tracking-widest block">Услуги
+                            клининга</span>
+                        <h1
+                            class="text-navy-deep dark:text-white text-4xl md:text-5xl font-black leading-tight tracking-tight">
+                            Выбирайте чистоту без забот</h1>
+                        <p class="text-steel-gray dark:text-slate-400 text-lg max-w-2xl mx-auto">Профессиональный
+                            клининг в Москве для вашего дома и офиса. Гарантируем качество и внимание к каждой детали.
+                        </p>
+                    </div>
+                </section>
+                <!-- Pricing Grid Section -->
+                <section class="px-4 md:px-10 lg:px-40 py-12">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-[1200px] mx-auto">
+                        <!-- Card 1: Поддерживающая -->
+                        <div
+                            class="flex flex-col gap-6 rounded-xl bg-white dark:bg-slate-800 p-8 shadow-sm border border-slate-100 dark:border-slate-700 hover:shadow-lg transition-shadow">
+                            <div class="space-y-2">
+                                <h3 class="text-navy-deep dark:text-white text-2xl font-bold">Поддерживающая</h3>
+                                <div class="flex items-baseline gap-1">
+                                    <span class="text-slate-500 text-sm font-medium">от</span>
+                                    <span class="text-navy-deep dark:text-white text-3xl font-black">4 390</span>
+                                    <span class="text-slate-500 text-sm font-bold">руб.</span>
+                                </div>
+                            </div>
+                            <div class="flex flex-col gap-4 flex-grow">
+                                <div class="flex items-start gap-3 text-slate-600 dark:text-slate-300 text-sm">
+                                    <span
+                                        class="material-symbols-outlined text-[#FCEA0E] text-[20px]">check_circle</span>
                                     Сухая уборка всех поверхностей
                                 </div>
-<div class="flex items-start gap-3 text-slate-600 dark:text-slate-300 text-sm">
-<span class="material-symbols-outlined text-primary text-[20px]">check_circle</span>
+                                <div class="flex items-start gap-3 text-slate-600 dark:text-slate-300 text-sm">
+                                    <span
+                                        class="material-symbols-outlined text-[#FCEA0E] text-[20px]">check_circle</span>
                                     Влажная уборка полов и плинтусов
                                 </div>
-<div class="flex items-start gap-3 text-slate-600 dark:text-slate-300 text-sm">
-<span class="material-symbols-outlined text-primary text-[20px]">check_circle</span>
+                                <div class="flex items-start gap-3 text-slate-600 dark:text-slate-300 text-sm">
+                                    <span
+                                        class="material-symbols-outlined text-[#FCEA0E] text-[20px]">check_circle</span>
                                     Обеспыливание внешних фасадов
                                 </div>
-<div class="flex items-start gap-3 text-slate-600 dark:text-slate-300 text-sm">
-<span class="material-symbols-outlined text-primary text-[20px]">check_circle</span>
+                                <div class="flex items-start gap-3 text-slate-600 dark:text-slate-300 text-sm">
+                                    <span
+                                        class="material-symbols-outlined text-[#FCEA0E] text-[20px]">check_circle</span>
                                     Чистка и дезинфекция сантехники
                                 </div>
-</div>
-<button class="w-full flex items-center justify-center rounded-lg h-12 bg-primary/10 text-primary hover:bg-primary hover:text-white font-bold transition-all">
+                            </div>
+                            <button
+                                class="w-full flex items-center justify-center rounded-lg h-12 bg-[#FCEA0E]/10 text-[#222222] dark:text-[#FCEA0E] hover:bg-[#FCEA0E] hover:text-[#222222] font-bold transition-all border border-[#FCEA0E]/20">
                                 Заказать
                             </button>
-</div>
-<!-- Card 2: Генеральная (Featured) -->
-<div class="relative flex flex-col gap-6 rounded-xl bg-white dark:bg-slate-800 p-8 shadow-xl border-2 border-primary ring-4 ring-primary/5">
-<div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
+                        </div>
+                        <!-- Card 2: Генеральная (Featured) -->
+                        <div
+                            class="relative flex flex-col gap-6 rounded-xl bg-white dark:bg-slate-800 p-8 shadow-xl border-2 border-[#FCEA0E] ring-4 ring-[#FCEA0E]/10">
+                            <div
+                                class="absolute -top-4 left-1/2 -translate-x-1/2 bg-[#FCEA0E] text-[#222222] px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider shadow-lg">
                                 Популярное
                             </div>
-<div class="space-y-2">
-<h3 class="text-navy-deep dark:text-white text-2xl font-bold">Генеральная</h3>
-<div class="flex items-baseline gap-1">
-<span class="text-slate-500 text-sm font-medium">от</span>
-<span class="text-navy-deep dark:text-white text-3xl font-black">8 490</span>
-<span class="text-slate-500 text-sm font-bold">руб.</span>
-</div>
-</div>
-<div class="flex flex-col gap-4 flex-grow">
-<div class="flex items-start gap-3 text-slate-600 dark:text-slate-300 text-sm">
-<span class="material-symbols-outlined text-primary text-[20px]">check_circle</span>
+                            <div class="space-y-2">
+                                <h3 class="text-navy-deep dark:text-white text-2xl font-bold">Генеральная</h3>
+                                <div class="flex items-baseline gap-1">
+                                    <span class="text-slate-500 text-sm font-medium">от</span>
+                                    <span class="text-navy-deep dark:text-white text-3xl font-black">8 490</span>
+                                    <span class="text-slate-500 text-sm font-bold">руб.</span>
+                                </div>
+                            </div>
+                            <div class="flex flex-col gap-4 flex-grow">
+                                <div class="flex items-start gap-3 text-slate-600 dark:text-slate-300 text-sm">
+                                    <span
+                                        class="material-symbols-outlined text-[#FCEA0E] text-[20px]">check_circle</span>
                                     Глубокая очистка всех комнат
                                 </div>
-<div class="flex items-start gap-3 text-slate-600 dark:text-slate-300 text-sm">
-<span class="material-symbols-outlined text-primary text-[20px]">check_circle</span>
+                                <div class="flex items-start gap-3 text-slate-600 dark:text-slate-300 text-sm">
+                                    <span
+                                        class="material-symbols-outlined text-[#FCEA0E] text-[20px]">check_circle</span>
                                     Мытье всей кухонной техники
                                 </div>
-<div class="flex items-start gap-3 text-slate-600 dark:text-slate-300 text-sm">
-<span class="material-symbols-outlined text-primary text-[20px]">check_circle</span>
+                                <div class="flex items-start gap-3 text-slate-600 dark:text-slate-300 text-sm">
+                                    <span
+                                        class="material-symbols-outlined text-[#FCEA0E] text-[20px]">check_circle</span>
                                     Удаление стойких загрязнений
                                 </div>
-<div class="flex items-start gap-3 text-slate-600 dark:text-slate-300 text-sm">
-<span class="material-symbols-outlined text-primary text-[20px]">check_circle</span>
+                                <div class="flex items-start gap-3 text-slate-600 dark:text-slate-300 text-sm">
+                                    <span
+                                        class="material-symbols-outlined text-[#FCEA0E] text-[20px]">check_circle</span>
                                     Дезинфекция санузлов и плитки
                                 </div>
-<div class="flex items-start gap-3 text-slate-600 dark:text-slate-300 text-sm">
-<span class="material-symbols-outlined text-primary text-[20px]">check_circle</span>
+                                <div class="flex items-start gap-3 text-slate-600 dark:text-slate-300 text-sm">
+                                    <span
+                                        class="material-symbols-outlined text-[#FCEA0E] text-[20px]">check_circle</span>
                                     Очистка радиаторов и вытяжек
                                 </div>
-</div>
-<button class="w-full flex items-center justify-center rounded-lg h-12 bg-primary text-white hover:bg-primary/90 font-bold shadow-md transition-all">
+                            </div>
+                            <button
+                                class="w-full flex items-center justify-center rounded-lg h-12 bg-[#FCEA0E] text-[#222222] hover:bg-[#FCEA0E]/90 font-bold shadow-md transition-all">
                                 Заказать
                             </button>
-</div>
-<!-- Card 3: После ремонта -->
-<div class="flex flex-col gap-6 rounded-xl bg-white dark:bg-slate-800 p-8 shadow-sm border border-slate-100 dark:border-slate-700 hover:shadow-lg transition-shadow">
-<div class="space-y-2">
-<h3 class="text-navy-deep dark:text-white text-2xl font-bold">После ремонта</h3>
-<div class="flex items-baseline gap-1">
-<span class="text-slate-500 text-sm font-medium">от</span>
-<span class="text-navy-deep dark:text-white text-3xl font-black">12 900</span>
-<span class="text-slate-500 text-sm font-bold">руб.</span>
-</div>
-</div>
-<div class="flex flex-col gap-4 flex-grow">
-<div class="flex items-start gap-3 text-slate-600 dark:text-slate-300 text-sm">
-<span class="material-symbols-outlined text-primary text-[20px]">check_circle</span>
+                        </div>
+                        <!-- Card 3: После ремонта -->
+                        <div
+                            class="flex flex-col gap-6 rounded-xl bg-white dark:bg-slate-800 p-8 shadow-sm border border-slate-100 dark:border-slate-700 hover:shadow-lg transition-shadow">
+                            <div class="space-y-2">
+                                <h3 class="text-navy-deep dark:text-white text-2xl font-bold">После ремонта</h3>
+                                <div class="flex items-baseline gap-1">
+                                    <span class="text-slate-500 text-sm font-medium">от</span>
+                                    <span class="text-navy-deep dark:text-white text-3xl font-black">12 900</span>
+                                    <span class="text-slate-500 text-sm font-bold">руб.</span>
+                                </div>
+                            </div>
+                            <div class="flex flex-col gap-4 flex-grow">
+                                <div class="flex items-start gap-3 text-slate-600 dark:text-slate-300 text-sm">
+                                    <span
+                                        class="material-symbols-outlined text-[#FCEA0E] text-[20px]">check_circle</span>
                                     Сбор и вынос строительного мусора
                                 </div>
-<div class="flex items-start gap-3 text-slate-600 dark:text-slate-300 text-sm">
-<span class="material-symbols-outlined text-primary text-[20px]">check_circle</span>
+                                <div class="flex items-start gap-3 text-slate-600 dark:text-slate-300 text-sm">
+                                    <span
+                                        class="material-symbols-outlined text-[#FCEA0E] text-[20px]">check_circle</span>
                                     Полное удаление мелкодисперсной пыли
                                 </div>
-<div class="flex items-start gap-3 text-slate-600 dark:text-slate-300 text-sm">
-<span class="material-symbols-outlined text-primary text-[20px]">check_circle</span>
+                                <div class="flex items-start gap-3 text-slate-600 dark:text-slate-300 text-sm">
+                                    <span
+                                        class="material-symbols-outlined text-[#FCEA0E] text-[20px]">check_circle</span>
                                     Мытье окон, рам и откосов
                                 </div>
-<div class="flex items-start gap-3 text-slate-600 dark:text-slate-300 text-sm">
-<span class="material-symbols-outlined text-primary text-[20px]">check_circle</span>
+                                <div class="flex items-start gap-3 text-slate-600 dark:text-slate-300 text-sm">
+                                    <span
+                                        class="material-symbols-outlined text-[#FCEA0E] text-[20px]">check_circle</span>
                                     Очистка кафеля от затирки и цемента
                                 </div>
-</div>
-<button class="w-full flex items-center justify-center rounded-lg h-12 bg-primary/10 text-primary hover:bg-primary hover:text-white font-bold transition-all">
+                            </div>
+                            <button
+                                class="w-full flex items-center justify-center rounded-lg h-12 bg-[#FCEA0E]/10 text-[#222222] dark:text-[#FCEA0E] hover:bg-[#FCEA0E] hover:text-[#222222] font-bold transition-all border border-[#FCEA0E]/20">
                                 Заказать
                             </button>
-</div>
-</div>
-</section>
-<!-- Additional Services Row -->
-<section class="px-4 md:px-10 lg:px-40 pb-20">
-<div class="max-w-[1200px] mx-auto space-y-6">
-<h3 class="text-navy-deep dark:text-white text-xl font-bold">Дополнительные услуги</h3>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-<div class="flex items-center justify-between p-6 bg-white dark:bg-slate-800 rounded-xl shadow-sm border border-slate-100 dark:border-slate-700 hover:border-primary/30 transition-colors group">
-<div class="flex items-center gap-4">
-<div class="size-10 flex items-center justify-center bg-primary/10 rounded-lg group-hover:bg-primary transition-colors">
-<span class="material-symbols-outlined text-primary group-hover:text-white">weekend</span>
-</div>
-<div>
-<p class="font-bold text-navy-deep dark:text-white">Химчистка мебели</p>
-<p class="text-xs text-steel-gray dark:text-slate-400">от 1 500 руб.</p>
-</div>
-</div>
-<span class="material-symbols-outlined text-slate-400">chevron_right</span>
-</div>
-<div class="flex items-center justify-between p-6 bg-white dark:bg-slate-800 rounded-xl shadow-sm border border-slate-100 dark:border-slate-700 hover:border-primary/30 transition-colors group">
-<div class="flex items-center gap-4">
-<div class="size-10 flex items-center justify-center bg-primary/10 rounded-lg group-hover:bg-primary transition-colors">
-<span class="material-symbols-outlined text-primary group-hover:text-white">window</span>
-</div>
-<div>
-<p class="font-bold text-navy-deep dark:text-white">Мытье окон</p>
-<p class="text-xs text-steel-gray dark:text-slate-400">от 400 руб./шт.</p>
-</div>
-</div>
-<span class="material-symbols-outlined text-slate-400">chevron_right</span>
-</div>
-<div class="flex items-center justify-between p-6 bg-white dark:bg-slate-800 rounded-xl shadow-sm border border-slate-100 dark:border-slate-700 hover:border-primary/30 transition-colors group">
-<div class="flex items-center gap-4">
-<div class="size-10 flex items-center justify-center bg-primary/10 rounded-lg group-hover:bg-primary transition-colors">
-<span class="material-symbols-outlined text-primary group-hover:text-white">iron</span>
-</div>
-<div>
-<p class="font-bold text-navy-deep dark:text-white">Глажка белья</p>
-<p class="text-xs text-steel-gray dark:text-slate-400">от 800 руб./час</p>
-</div>
-</div>
-<span class="material-symbols-outlined text-slate-400">chevron_right</span>
-</div>
-</div>
-</div>
-</section>
-
-    </div>
-    <div id="building-services" class="hidden transition-all duration-500 ease-in-out" style="display: none;">
-        <section class="bg-cloud py-12 border-b border-slate-100">
-<div class="max-w-7xl mx-auto px-6">
-<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-<!-- Item 1 -->
-<div class="flex items-center gap-4 p-4">
-<div class="flex-shrink-0 w-12 h-12 rounded-full bg-white flex items-center justify-center text-primary shadow-sm">
-<span class="material-symbols-outlined">verified_user</span>
-</div>
-<div>
-<h4 class="text-navy-deep font-bold text-base">Гарантия 2 года</h4>
-<p class="text-slate-500 text-sm">Юридический договор</p>
-</div>
-</div>
-<!-- Item 2 -->
-<div class="flex items-center gap-4 p-4">
-<div class="flex-shrink-0 w-12 h-12 rounded-full bg-white flex items-center justify-center text-primary shadow-sm">
-<span class="material-symbols-outlined">calendar_today</span>
-</div>
-<div>
-<h4 class="text-navy-deep font-bold text-base">С 2010 года</h4>
-<p class="text-slate-500 text-sm">Огромный опыт работ</p>
-</div>
-</div>
-<!-- Item 3 -->
-<div class="flex items-center gap-4 p-4">
-<div class="flex-shrink-0 w-12 h-12 rounded-full bg-white flex items-center justify-center text-primary shadow-sm">
-<span class="material-symbols-outlined">receipt_long</span>
-</div>
-<div>
-<h4 class="text-navy-deep font-bold text-base">Оплата по актам</h4>
-<p class="text-slate-500 text-sm">Поэтапная оплата</p>
-</div>
-</div>
-<!-- Item 4 -->
-<div class="flex items-center gap-4 p-4">
-<div class="flex-shrink-0 w-12 h-12 rounded-full bg-white flex items-center justify-center text-primary shadow-sm">
-<span class="material-symbols-outlined">home_repair_service</span>
-</div>
-<div>
-<h4 class="text-navy-deep font-bold text-base">Все работы под ключ</h4>
-<p class="text-slate-500 text-sm">От проекта до мебели</p>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section class="py-20 bg-white">
-<div class="max-w-7xl mx-auto px-6">
-<div class="flex justify-between items-end mb-12">
-<div>
-<h2 class="text-navy-deep text-3xl font-black mb-2">Наши последние проекты</h2>
-<p class="text-slate-500">Посмотрите на результаты нашей работы в Москве и области</p>
-</div>
-<button class="text-navy-deep font-bold flex items-center gap-2 group">
-                    Смотреть все 
-                    <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
-</button>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-<div class="rounded-2xl overflow-hidden group cursor-pointer">
-<div class="aspect-[4/3] bg-slate-100 relative">
-<img alt="Luxury Apartment Renovation" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Modern luxury minimalist apartment interior design" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBT9ZtDtyaBQ8RQ7puURIytuGVqc-Lkya04EmhAxG1Z94VSmUDFKTqtfCAchC6PyU_hT8WWQczB_lpb-_PguxFAhN9xya4k210V1-I3JVT8EHKeimCJ_o1IxB1ey0EUUrpFK1zMH9dEJEl3uVJ7Tk3D6zJJxRX_ov6rkTjSmN61oGdw5pWoZeuzOMT5KUXBEWgLMiOzgSVcJN1_PsYOFOQ1iT5QLr1CpYqZ3szaPWnKHcHlOj03pauGaOPrmML3_-0nRXyrfQPE"/>
-</div>
-<div class="py-4">
-<h3 class="text-navy-deep font-bold text-xl">ЖК «Сердце Столицы»</h3>
-<p class="text-slate-500">Дизайнерский ремонт, 120 м²</p>
-</div>
-</div>
-<div class="rounded-2xl overflow-hidden group cursor-pointer">
-<div class="aspect-[4/3] bg-slate-100 relative">
-<img alt="Villa Construction" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Modern scandinavian style wooden villa architecture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXVy4aLtWf-WLkaLFWqu3jQVrkMrOKJEtv9aXKBseQ4CTrkdo_R5rtGHcfOe0a2GbuSZkRcVBJTROIHDoH1Q5GmhO1xe9Us84DJLXfRGLHWYaqwHvkIUF85QkpB-IUhfyU-Tnr_MfJJSgGzU-jvDoagjWzHSG9tazaBCBojnCQgpE3_I5LqP-BEATHtq0Lte02D6iMkFs2ay-691PRNHFE2SPpRmzn_63fyh9yaSDCcrpPt-t4m5HKd3aa4Yh3rVjbMjES5Dck"/>
-</div>
-<div class="py-4">
-<h3 class="text-navy-deep font-bold text-xl">Коттедж в Барвихе</h3>
-<p class="text-slate-500">Строительство под ключ, 450 м²</p>
-</div>
-</div>
-<div class="rounded-2xl overflow-hidden group cursor-pointer">
-<div class="aspect-[4/3] bg-slate-100 relative">
-<img alt="Office Renovation" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Sleek high-tech modern office space interior" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8u1261ULZWVQMU3OCfnsiazm53K_sXx0JjBh2QzHEQxXLiFOwrYBJEOw7pEw-NfOEtIL0S8vSz9Embm6mGwfxOjv5Dq4Nqh_X1WoNjPjgHoiFcwpaODXiQzTHvTchfjH1HAASpiCVUtPXGFyc5PkToki9muC9apblUJIIRxbEY8Tljmq9OR__-hNBabgj9_5XHq0_m1f6P_uk0Up282IN_9eYZsZWLyyNx-4lxCt2f_sRhOp1Gdpqy9FGeIlrmMbM_s4S5xx0"/>
-</div>
-<div class="py-4">
-<h3 class="text-navy-deep font-bold text-xl">БЦ «Москва-Сити»</h3>
-<p class="text-slate-500">Отделка офиса, 280 м²</p>
-</div>
-</div>
-</div>
-</div>
-</section>
-        <section class="flex-1 py-16 px-6 lg:px-20 max-w-[1400px] mx-auto w-full">
-<!-- Section Header -->
-<div class="text-center mb-16 space-y-4">
-<h4 class="text-primary text-sm font-extrabold uppercase tracking-widest">Услуги ремонта</h4>
-<h2 class="text-navy-deep dark:text-white text-4xl lg:text-5xl font-extrabold leading-tight">Ремонт, который радует</h2>
-<p class="text-steel-gray dark:text-slate-400 text-lg max-w-2xl mx-auto">
-                        Профессиональные решения для вашего дома от косметического обновления до капитального переустройства под ключ.
-                    </p>
-</div>
-<!-- Main Grid: Service Packages -->
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-<!-- Card 1: Косметический -->
-<div class="flex flex-col bg-white dark:bg-slate-900 rounded-xl p-8 shadow-sm border border-slate-100 dark:border-slate-800 hover:shadow-xl transition-shadow group">
-<div class="flex-1">
-<div class="mb-6">
-<span class="material-symbols-outlined text-primary text-4xl mb-4">brush</span>
-<h3 class="text-navy-deep dark:text-white text-2xl font-bold mb-3">Косметический</h3>
-<p class="text-steel-gray dark:text-slate-400 text-sm leading-relaxed">Быстрое обновление интерьера без изменения планировки. Идеально для освежения пространства.</p>
-</div>
-<div class="flex items-baseline gap-2 mb-8">
-<span class="text-3xl font-black text-navy-deep dark:text-white">от 5 000 ₽</span>
-<span class="text-steel-gray text-sm">/ м²</span>
-</div>
-<ul class="space-y-4 mb-10">
-<li class="flex items-center gap-3 text-sm text-navy-deep/80 dark:text-slate-300">
-<span class="material-symbols-outlined text-primary text-[20px]">check_circle</span>
-                                    Покраска стен и обои
-                                </li>
-<li class="flex items-center gap-3 text-sm text-navy-deep/80 dark:text-slate-300">
-<span class="material-symbols-outlined text-primary text-[20px]">check_circle</span>
-                                    Замена напольных покрытий
-                                </li>
-<li class="flex items-center gap-3 text-sm text-navy-deep/80 dark:text-slate-300">
-<span class="material-symbols-outlined text-primary text-[20px]">check_circle</span>
-                                    Монтаж плинтусов и розеток
-                                </li>
-</ul>
-</div>
-<button class="w-full py-4 rounded-xl border-2 border-primary text-navy-deep dark:text-primary font-bold hover:bg-primary hover:text-navy-deep transition-all">
-                            Рассчитать
-                        </button>
-</div>
-<!-- Card 2: Капитальный (Featured) -->
-<div class="flex flex-col bg-white dark:bg-slate-900 rounded-xl p-8 shadow-2xl border-2 border-primary relative overflow-hidden group">
-<div class="absolute top-0 right-0 bg-primary text-navy-deep px-6 py-1.5 text-xs font-black uppercase tracking-tighter rounded-bl-xl">
-                            Под ключ
                         </div>
-<div class="flex-1">
-<div class="mb-6">
-<span class="material-symbols-outlined text-primary text-4xl mb-4">architecture</span>
-<h3 class="text-navy-deep dark:text-white text-2xl font-bold mb-3">Капитальный</h3>
-<p class="text-steel-gray dark:text-slate-400 text-sm leading-relaxed">Полная трансформация вашего жилья с заменой всех коммуникаций и перепланировкой.</p>
-</div>
-<div class="flex items-baseline gap-2 mb-8">
-<span class="text-4xl font-black text-navy-deep dark:text-white">от 12 000 ₽</span>
-<span class="text-steel-gray text-sm">/ м²</span>
-</div>
-<ul class="space-y-4 mb-10">
-<li class="flex items-center gap-3 text-sm text-navy-deep/80 dark:text-slate-300">
-<span class="material-symbols-outlined text-primary text-[20px]">check_circle</span>
-                                    Демонтаж и перепланировка
-                                </li>
-<li class="flex items-center gap-3 text-sm text-navy-deep/80 dark:text-slate-300">
-<span class="material-symbols-outlined text-primary text-[20px]">check_circle</span>
-                                    Замена всех коммуникаций
-                                </li>
-<li class="flex items-center gap-3 text-sm text-navy-deep/80 dark:text-slate-300">
-<span class="material-symbols-outlined text-primary text-[20px]">check_circle</span>
-                                    Черновая отделка (выравнивание)
-                                </li>
-<li class="flex items-center gap-3 text-sm text-navy-deep/80 dark:text-slate-300">
-<span class="material-symbols-outlined text-primary text-[20px]">check_circle</span>
-                                    Финальная чистовая отделка
-                                </li>
-</ul>
-</div>
-<button class="w-full py-4 rounded-xl bg-primary text-navy-deep font-bold shadow-lg shadow-primary/30 hover:shadow-xl transition-all">
-                            Выбрать пакет
-                        </button>
-</div>
-<!-- Card 3: Инженерные сети -->
-<div class="flex flex-col bg-white dark:bg-slate-900 rounded-xl p-8 shadow-sm border border-slate-100 dark:border-slate-800 hover:shadow-xl transition-shadow group">
-<div class="flex-1">
-<div class="mb-6">
-<span class="material-symbols-outlined text-primary text-4xl mb-4">settings_input_component</span>
-<h3 class="text-navy-deep dark:text-white text-2xl font-bold mb-3">Инженерные сети</h3>
-<p class="text-steel-gray dark:text-slate-400 text-sm leading-relaxed">Проектирование и монтаж скрытых систем электроснабжения, сантехники и отопления.</p>
-</div>
-<div class="flex items-baseline gap-2 mb-8">
-<span class="text-3xl font-black text-navy-deep dark:text-white">от 3 500 ₽</span>
-<span class="text-steel-gray text-sm">/ м²</span>
-</div>
-<ul class="space-y-4 mb-10">
-<li class="flex items-center gap-3 text-sm text-navy-deep/80 dark:text-slate-300">
-<span class="material-symbols-outlined text-primary text-[20px]">check_circle</span>
-                                    Электромонтажные работы
-                                </li>
-<li class="flex items-center gap-3 text-sm text-navy-deep/80 dark:text-slate-300">
-<span class="material-symbols-outlined text-primary text-[20px]">check_circle</span>
-                                    Системы водоснабжения
-                                </li>
-<li class="flex items-center gap-3 text-sm text-navy-deep/80 dark:text-slate-300">
-<span class="material-symbols-outlined text-primary text-[20px]">check_circle</span>
-                                    Монтаж радиаторов и теплого пола
-                                </li>
-</ul>
-</div>
-<button class="w-full py-4 rounded-xl border-2 border-primary text-navy-deep dark:text-primary font-bold hover:bg-primary hover:text-navy-deep transition-all">
-                            Рассчитать
-                        </button>
-</div>
-</div>
-<!-- Additional Services Row -->
-<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-<div class="flex items-center gap-4 bg-white dark:bg-slate-900 p-6 rounded-xl shadow-sm border border-slate-100 dark:border-slate-800 group cursor-pointer hover:border-primary transition-colors">
-<div class="bg-primary/10 p-3 rounded-lg group-hover:bg-primary transition-colors">
-<span class="material-symbols-outlined text-primary group-hover:text-navy-deep">format_paint</span>
-</div>
-<div>
-<h4 class="font-bold text-navy-deep dark:text-white">Дизайн-проект</h4>
-<p class="text-xs text-steel-gray">Создадим уютный интерьер</p>
-</div>
-</div>
-<div class="flex items-center gap-4 bg-white dark:bg-slate-900 p-6 rounded-xl shadow-sm border border-slate-100 dark:border-slate-800 group cursor-pointer hover:border-primary transition-colors">
-<div class="bg-primary/10 p-3 rounded-lg group-hover:bg-primary transition-colors">
-<span class="material-symbols-outlined text-primary group-hover:text-navy-deep">verified_user</span>
-</div>
-<div>
-<h4 class="font-bold text-navy-deep dark:text-white">Приемка квартир</h4>
-<p class="text-xs text-steel-gray">Поможем найти дефекты</p>
-</div>
-</div>
-<div class="flex items-center gap-4 bg-white dark:bg-slate-900 p-6 rounded-xl shadow-sm border border-slate-100 dark:border-slate-800 group cursor-pointer hover:border-primary transition-colors">
-<div class="bg-primary/10 p-3 rounded-lg group-hover:bg-primary transition-colors">
-<span class="material-symbols-outlined text-primary group-hover:text-navy-deep">layers</span>
-</div>
-<div>
-<h4 class="font-bold text-navy-deep dark:text-white">Натяжные потолки</h4>
-<p class="text-xs text-steel-gray">Монтаж за 1 день</p>
-</div>
-</div>
-</div>
-</section>
-<div class="bg-navy-deep text-white py-12 px-6 lg:px-20 mt-12">
-<div class="max-w-[1400px] mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-<div>
-<div class="text-primary text-4xl font-black mb-1">500+</div>
-<div class="text-slate-400 text-xs uppercase tracking-widest font-bold">Проектов сдано</div>
-</div>
-<div>
-<div class="text-primary text-4xl font-black mb-1">10 лет</div>
-<div class="text-slate-400 text-xs uppercase tracking-widest font-bold">Опыта на рынке</div>
-</div>
-<div>
-<div class="text-primary text-4xl font-black mb-1">2 года</div>
-<div class="text-slate-400 text-xs uppercase tracking-widest font-bold">Гарантии на работы</div>
-</div>
-<div>
-<div class="text-primary text-4xl font-black mb-1">150+</div>
-<div class="text-slate-400 text-xs uppercase tracking-widest font-bold">Специалистов</div>
-</div>
-</div>
-</div>
-    </div>
-    <div id="common-section">
-        <section class="relative w-full py-20 px-4 md:px-10 lg:px-20 xl:px-40 overflow-hidden">
-        <div class="max-w-[1200px] mx-auto">
-            <!-- Section Header -->
-            <div class="text-center mb-16">
-                <h2 class="text-primary dark:text-white text-3xl md:text-[36px] font-bold leading-tight mb-4">
-                    Почему нам доверяют 3000+ семей в Москве
-                </h2>
-                <p class="text-steel-gray dark:text-slate-400 text-lg font-normal max-w-2xl mx-auto">
-                    Надежный сервис для вашего дома: мы заботимся о каждой детали, чтобы вы могли наслаждаться чистотой
-                    и комфортом.
-                </p>
+                    </div>
+                </section>
+                <!-- Additional Services Row -->
+                <section class="px-4 md:px-10 lg:px-40 pb-20">
+                    <div class="max-w-[1200px] mx-auto space-y-6">
+                        <h3 class="text-navy-deep dark:text-white text-xl font-bold">Дополнительные услуги</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <div
+                                class="flex items-center justify-between p-6 bg-white dark:bg-slate-800 rounded-xl shadow-sm border border-slate-100 dark:border-slate-700 hover:border-[#FCEA0E]/50 transition-colors group">
+                                <div class="flex items-center gap-4">
+                                    <div
+                                        class="size-10 flex items-center justify-center bg-[#FCEA0E]/10 rounded-lg group-hover:bg-[#FCEA0E] transition-colors">
+                                        <span
+                                            class="material-symbols-outlined text-[#FCEA0E] group-hover:text-[#222222]">weekend</span>
+                                    </div>
+                                    <div>
+                                        <p class="font-bold text-navy-deep dark:text-white">Химчистка мебели</p>
+                                        <p class="text-xs text-steel-gray dark:text-slate-400">от 1 500 руб.</p>
+                                    </div>
+                                </div>
+                                <span class="material-symbols-outlined text-slate-400">chevron_right</span>
+                            </div>
+                            <div
+                                class="flex items-center justify-between p-6 bg-white dark:bg-slate-800 rounded-xl shadow-sm border border-slate-100 dark:border-slate-700 hover:border-[#FCEA0E]/50 transition-colors group">
+                                <div class="flex items-center gap-4">
+                                    <div
+                                        class="size-10 flex items-center justify-center bg-[#FCEA0E]/10 rounded-lg group-hover:bg-[#FCEA0E] transition-colors">
+                                        <span
+                                            class="material-symbols-outlined text-[#FCEA0E] group-hover:text-[#222222]">window</span>
+                                    </div>
+                                    <div>
+                                        <p class="font-bold text-navy-deep dark:text-white">Мытье окон</p>
+                                        <p class="text-xs text-steel-gray dark:text-slate-400">от 400 руб./шт.</p>
+                                    </div>
+                                </div>
+                                <span class="material-symbols-outlined text-slate-400">chevron_right</span>
+                            </div>
+                            <div
+                                class="flex items-center justify-between p-6 bg-white dark:bg-slate-800 rounded-xl shadow-sm border border-slate-100 dark:border-slate-700 hover:border-[#FCEA0E]/50 transition-colors group">
+                                <div class="flex items-center gap-4">
+                                    <div
+                                        class="size-10 flex items-center justify-center bg-[#FCEA0E]/10 rounded-lg group-hover:bg-[#FCEA0E] transition-colors">
+                                        <span
+                                            class="material-symbols-outlined text-[#FCEA0E] group-hover:text-[#222222]">iron</span>
+                                    </div>
+                                    <div>
+                                        <p class="font-bold text-navy-deep dark:text-white">Глажка белья</p>
+                                        <p class="text-xs text-steel-gray dark:text-slate-400">от 800 руб./час</p>
+                                    </div>
+                                </div>
+                                <span class="material-symbols-outlined text-slate-400">chevron_right</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
             </div>
-            <!-- Advantages Grid -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-                <!-- Card 1: Юридическая гарантия -->
-                <div
-                    class="bg-white dark:bg-slate-800 rounded-lg p-8 whisper-shadow border border-primary/5 flex flex-col items-center text-center transition-transform hover:-translate-y-1">
-                    <div
-                        class="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center text-primary dark:text-primary/80 mb-6">
-                        <span class="material-symbols-outlined text-[32px]">shield</span>
+            <div id="building-services" class="hidden transition-all duration-500 ease-in-out" style="display: none;">
+                <section class="bg-cloud py-12 border-b border-slate-100">
+                    <div class="max-w-7xl mx-auto px-6">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                            <!-- Item 1 -->
+                            <div class="flex items-center gap-4 p-4">
+                                <div
+                                    class="flex-shrink-0 w-12 h-12 rounded-full bg-white flex items-center justify-center text-primary shadow-sm">
+                                    <span class="material-symbols-outlined">verified_user</span>
+                                </div>
+                                <div>
+                                    <h4 class="text-navy-deep font-bold text-base">Гарантия 2 года</h4>
+                                    <p class="text-slate-500 text-sm">Юридический договор</p>
+                                </div>
+                            </div>
+                            <!-- Item 2 -->
+                            <div class="flex items-center gap-4 p-4">
+                                <div
+                                    class="flex-shrink-0 w-12 h-12 rounded-full bg-white flex items-center justify-center text-primary shadow-sm">
+                                    <span class="material-symbols-outlined">calendar_today</span>
+                                </div>
+                                <div>
+                                    <h4 class="text-navy-deep font-bold text-base">С 2010 года</h4>
+                                    <p class="text-slate-500 text-sm">Огромный опыт работ</p>
+                                </div>
+                            </div>
+                            <!-- Item 3 -->
+                            <div class="flex items-center gap-4 p-4">
+                                <div
+                                    class="flex-shrink-0 w-12 h-12 rounded-full bg-white flex items-center justify-center text-primary shadow-sm">
+                                    <span class="material-symbols-outlined">receipt_long</span>
+                                </div>
+                                <div>
+                                    <h4 class="text-navy-deep font-bold text-base">Оплата по актам</h4>
+                                    <p class="text-slate-500 text-sm">Поэтапная оплата</p>
+                                </div>
+                            </div>
+                            <!-- Item 4 -->
+                            <div class="flex items-center gap-4 p-4">
+                                <div
+                                    class="flex-shrink-0 w-12 h-12 rounded-full bg-white flex items-center justify-center text-primary shadow-sm">
+                                    <span class="material-symbols-outlined">home_repair_service</span>
+                                </div>
+                                <div>
+                                    <h4 class="text-navy-deep font-bold text-base">Все работы под ключ</h4>
+                                    <p class="text-slate-500 text-sm">От проекта до мебели</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <h3 class="text-primary dark:text-white text-xl font-semibold mb-3">Юридическая гарантия</h3>
-                    <p class="text-steel-gray dark:text-slate-400 text-base leading-relaxed">
-                        Ваша безопасность под защитой закона и официального договора.
-                    </p>
-                </div>
-                <!-- Card 2: Проверенный персонал -->
-                <div
-                    class="bg-white dark:bg-slate-800 rounded-lg p-8 whisper-shadow border border-primary/5 flex flex-col items-center text-center transition-transform hover:-translate-y-1">
-                    <div
-                        class="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center text-primary dark:text-primary/80 mb-6">
-                        <span class="material-symbols-outlined text-[32px]">group</span>
+                </section>
+                <section class="py-20 bg-white">
+                    <div class="max-w-7xl mx-auto px-6">
+                        <div class="flex justify-between items-end mb-12">
+                            <div>
+                                <h2 class="text-navy-deep text-3xl font-black mb-2">Наши последние проекты</h2>
+                                <p class="text-slate-500">Посмотрите на результаты нашей работы в Москве и области</p>
+                            </div>
+                            <button class="text-navy-deep font-bold flex items-center gap-2 group">
+                                Смотреть все
+                                <span
+                                    class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                            </button>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                            <div class="rounded-2xl overflow-hidden group cursor-pointer">
+                                <div class="aspect-[4/3] bg-slate-100 relative">
+                                    <img alt="Luxury Apartment Renovation"
+                                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                        data-alt="Modern luxury minimalist apartment interior design"
+                                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuBT9ZtDtyaBQ8RQ7puURIytuGVqc-Lkya04EmhAxG1Z94VSmUDFKTqtfCAchC6PyU_hT8WWQczB_lpb-_PguxFAhN9xya4k210V1-I3JVT8EHKeimCJ_o1IxB1ey0EUUrpFK1zMH9dEJEl3uVJ7Tk3D6zJJxRX_ov6rkTjSmN61oGdw5pWoZeuzOMT5KUXBEWgLMiOzgSVcJN1_PsYOFOQ1iT5QLr1CpYqZ3szaPWnKHcHlOj03pauGaOPrmML3_-0nRXyrfQPE" />
+                                </div>
+                                <div class="py-4">
+                                    <h3 class="text-navy-deep font-bold text-xl">ЖК «Сердце Столицы»</h3>
+                                    <p class="text-slate-500">Дизайнерский ремонт, 120 м²</p>
+                                </div>
+                            </div>
+                            <div class="rounded-2xl overflow-hidden group cursor-pointer">
+                                <div class="aspect-[4/3] bg-slate-100 relative">
+                                    <img alt="Villa Construction"
+                                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                        data-alt="Modern scandinavian style wooden villa architecture"
+                                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXVy4aLtWf-WLkaLFWqu3jQVrkMrOKJEtv9aXKBseQ4CTrkdo_R5rtGHcfOe0a2GbuSZkRcVBJTROIHDoH1Q5GmhO1xe9Us84DJLXfRGLHWYaqwHvkIUF85QkpB-IUhfyU-Tnr_MfJJSgGzU-jvDoagjWzHSG9tazaBCBojnCQgpE3_I5LqP-BEATHtq0Lte02D6iMkFs2ay-691PRNHFE2SPpRmzn_63fyh9yaSDCcrpPt-t4m5HKd3aa4Yh3rVjbMjES5Dck" />
+                                </div>
+                                <div class="py-4">
+                                    <h3 class="text-navy-deep font-bold text-xl">Коттедж в Барвихе</h3>
+                                    <p class="text-slate-500">Строительство под ключ, 450 м²</p>
+                                </div>
+                            </div>
+                            <div class="rounded-2xl overflow-hidden group cursor-pointer">
+                                <div class="aspect-[4/3] bg-slate-100 relative">
+                                    <img alt="Office Renovation"
+                                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                        data-alt="Sleek high-tech modern office space interior"
+                                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8u1261ULZWVQMU3OCfnsiazm53K_sXx0JjBh2QzHEQxXLiFOwrYBJEOw7pEw-NfOEtIL0S8vSz9Embm6mGwfxOjv5Dq4Nqh_X1WoNjPjgHoiFcwpaODXiQzTHvTchfjH1HAASpiCVUtPXGFyc5PkToki9muC9apblUJIIRxbEY8Tljmq9OR__-hNBabgj9_5XHq0_m1f6P_uk0Up282IN_9eYZsZWLyyNx-4lxCt2f_sRhOp1Gdpqy9FGeIlrmMbM_s4S5xx0" />
+                                </div>
+                                <div class="py-4">
+                                    <h3 class="text-navy-deep font-bold text-xl">БЦ «Москва-Сити»</h3>
+                                    <p class="text-slate-500">Отделка офиса, 280 м²</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <h3 class="text-primary dark:text-white text-xl font-semibold mb-3">Проверенный персонал</h3>
-                    <p class="text-steel-gray dark:text-slate-400 text-base leading-relaxed">
-                        Каждый сотрудник прошел многоэтапный отбор и обучение.
-                    </p>
-                </div>
-                <!-- Card 3: Оплата по факту -->
-                <div
-                    class="bg-white dark:bg-slate-800 rounded-lg p-8 whisper-shadow border border-primary/5 flex flex-col items-center text-center transition-transform hover:-translate-y-1">
-                    <div
-                        class="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center text-primary dark:text-primary/80 mb-6">
-                        <span class="material-symbols-outlined text-[32px]">account_balance_wallet</span>
-                    </div>
-                    <h3 class="text-primary dark:text-white text-xl font-semibold mb-3">Оплата по факту</h3>
-                    <p class="text-steel-gray dark:text-slate-400 text-base leading-relaxed">
-                        Вы платите только после завершения и проверки всех работ.
-                    </p>
-                </div>
-                <!-- Card 4: Премиальные материалы -->
-                <div
-                    class="bg-white dark:bg-slate-800 rounded-lg p-8 whisper-shadow border border-primary/5 flex flex-col items-center text-center transition-transform hover:-translate-y-1">
-                    <div
-                        class="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center text-primary dark:text-primary/80 mb-6">
-                        <span class="material-symbols-outlined text-[32px]">star</span>
-                    </div>
-                    <h3 class="text-primary dark:text-white text-xl font-semibold mb-3">Премиальные материалы</h3>
-                    <p class="text-steel-gray dark:text-slate-400 text-base leading-relaxed">
-                        Используем только сертифицированные гипоаллергенные средства.
-                    </p>
-                </div>
-            </div>
-            <!-- Bottom Highlight Banner -->
-            <div
-                class="w-full bg-[#1B2A4A] dark:bg-slate-900 rounded-xl p-6 md:p-10 flex flex-col md:flex-row items-center justify-center gap-6 text-center md:text-left border border-white/5 shadow-2xl">
-                <div class="flex items-center gap-4">
-                    <div id="trust-icon-bg"
-                        class="flex-shrink-0 w-12 h-12 bg-[#2a9d90]/20 rounded-full flex items-center justify-center transition-all">
-                        <span id="trust-icon"
-                            class="material-symbols-outlined text-[#2a9d90] text-[24px] transition-all">verified_user</span>
-                    </div>
-                    <div class="flex flex-col">
-                        <p class="text-white text-lg md:text-xl font-medium leading-tight">
-                            Работаем без предоплаты за все виды наших услуг.
-                            <span class="block md:inline text-white/80 font-normal">100% материальная
-                                ответственность.</span>
+                </section>
+                <section class="flex-1 py-16 px-6 lg:px-20 max-w-[1400px] mx-auto w-full">
+                    <!-- Section Header -->
+                    <div class="text-center mb-16 space-y-4">
+                        <h4 class="text-primary text-sm font-extrabold uppercase tracking-widest">Услуги ремонта</h4>
+                        <h2 class="text-navy-deep dark:text-white text-4xl lg:text-5xl font-extrabold leading-tight">
+                            Ремонт, который радует</h2>
+                        <p class="text-steel-gray dark:text-slate-400 text-lg max-w-2xl mx-auto">
+                            Профессиональные решения для вашего дома от косметического обновления до капитального
+                            переустройства под ключ.
                         </p>
                     </div>
-                </div>
-                <div class="md:ml-auto">
-                    <button id="trust-button"
-                        class="bg-[#2a9d90] text-white hover:opacity-90 px-8 py-3 rounded-full font-bold text-sm transition-all whitespace-nowrap shadow-lg shadow-[#2a9d90]/20">
-                        Заказать консультацию
-                    </button>
-                </div>
-            </div>
-            <!-- Optional visual element -->
-            <div class="absolute -bottom-20 -right-20 w-80 h-80 bg-primary/5 rounded-full blur-3xl -z-10"></div>
-            <div class="absolute -top-20 -left-20 w-80 h-80 bg-primary/5 rounded-full blur-3xl -z-10"></div>
-        </div>
-    </section>
-        <section class="relative w-full bg-[#1B2A4A] overflow-hidden min-h-[500px] flex flex-col justify-between">
-        <!-- Premium Background Image -->
-        <div class="absolute inset-0 z-0">
-            <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=2070&auto=format&fit=crop"
-                alt="Premium Moscow City View" class="w-full h-full object-cover opacity-30 grayscale-[0.3]" />
-            <!-- Gradient Overlay for readability -->
-            <div class="absolute inset-0 bg-gradient-to-r from-[#1B2A4A] via-[#1B2A4A]/80 to-transparent"></div>
-            <div class="absolute inset-0 bg-gradient-to-t from-[#1B2A4A] via-transparent to-transparent opacity-60">
-            </div>
-        </div>
-
-        <!-- Content Container -->
-        <div class="relative z-10 max-w-7xl mx-auto px-6 py-16 lg:px-8 w-full flex-1 flex flex-col justify-center">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <!-- Left: Contact Details -->
-                <div class="flex flex-col space-y-8">
-                    <div>
-                        <h2 class="text-3xl md:text-4xl font-black text-white mb-2 tracking-tight">Связаться с нами</h2>
-                        <p class="text-primary font-bold tracking-wide uppercase text-xs">Премиальный сервис 24/7</p>
-                    </div>
-
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        <div class="space-y-4">
-                            <div class="group border-l-2 border-primary/40 hover:border-primary pl-4 transition-colors">
-                                <p class="text-white/40 text-[10px] uppercase font-bold mb-1">Телефон</p>
-                                <a href="tel:+74955326009"
-                                    class="text-xl font-bold text-white hover:text-primary transition-colors">+7 (495)
-                                    532-60-09</a>
+                    <!-- Main Grid: Service Packages -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+                        <!-- Card 1: Косметический -->
+                        <div
+                            class="flex flex-col bg-white dark:bg-slate-900 rounded-xl p-8 shadow-sm border border-slate-100 dark:border-slate-800 hover:shadow-xl transition-shadow group">
+                            <div class="flex-1">
+                                <div class="mb-6">
+                                    <span class="material-symbols-outlined text-primary text-4xl mb-4">brush</span>
+                                    <h3 class="text-navy-deep dark:text-white text-2xl font-bold mb-3">Косметический
+                                    </h3>
+                                    <p class="text-steel-gray dark:text-slate-400 text-sm leading-relaxed">Быстрое
+                                        обновление интерьера без изменения планировки. Идеально для освежения
+                                        пространства.</p>
+                                </div>
+                                <div class="flex items-baseline gap-2 mb-8">
+                                    <span class="text-3xl font-black text-navy-deep dark:text-white">от 5 000 ₽</span>
+                                    <span class="text-steel-gray text-sm">/ м²</span>
+                                </div>
+                                <ul class="space-y-4 mb-10">
+                                    <li class="flex items-center gap-3 text-sm text-navy-deep/80 dark:text-slate-300">
+                                        <span
+                                            class="material-symbols-outlined text-primary text-[20px]">check_circle</span>
+                                        Покраска стен и обои
+                                    </li>
+                                    <li class="flex items-center gap-3 text-sm text-navy-deep/80 dark:text-slate-300">
+                                        <span
+                                            class="material-symbols-outlined text-primary text-[20px]">check_circle</span>
+                                        Замена напольных покрытий
+                                    </li>
+                                    <li class="flex items-center gap-3 text-sm text-navy-deep/80 dark:text-slate-300">
+                                        <span
+                                            class="material-symbols-outlined text-primary text-[20px]">check_circle</span>
+                                        Монтаж плинтусов и розеток
+                                    </li>
+                                </ul>
                             </div>
-                            <div class="group border-l-2 border-primary/40 hover:border-primary pl-4 transition-colors">
-                                <p class="text-white/40 text-[10px] uppercase font-bold mb-1">Email</p>
-                                <a href="mailto:info@solution-club.ru"
-                                    class="text-lg font-medium text-white/90 hover:text-white transition-colors">info@solution-club.ru</a>
+                            <button
+                                class="w-full py-4 rounded-xl border-2 border-primary text-navy-deep dark:text-primary font-bold hover:bg-primary hover:text-navy-deep transition-all">
+                                Рассчитать
+                            </button>
+                        </div>
+                        <!-- Card 2: Капитальный (Featured) -->
+                        <div
+                            class="flex flex-col bg-white dark:bg-slate-900 rounded-xl p-8 shadow-2xl border-2 border-primary relative overflow-hidden group">
+                            <div
+                                class="absolute top-0 right-0 bg-primary text-navy-deep px-6 py-1.5 text-xs font-black uppercase tracking-tighter rounded-bl-xl">
+                                Под ключ
+                            </div>
+                            <div class="flex-1">
+                                <div class="mb-6">
+                                    <span
+                                        class="material-symbols-outlined text-primary text-4xl mb-4">architecture</span>
+                                    <h3 class="text-navy-deep dark:text-white text-2xl font-bold mb-3">Капитальный</h3>
+                                    <p class="text-steel-gray dark:text-slate-400 text-sm leading-relaxed">Полная
+                                        трансформация вашего жилья с заменой всех коммуникаций и перепланировкой.</p>
+                                </div>
+                                <div class="flex items-baseline gap-2 mb-8">
+                                    <span class="text-4xl font-black text-navy-deep dark:text-white">от 12 000 ₽</span>
+                                    <span class="text-steel-gray text-sm">/ м²</span>
+                                </div>
+                                <ul class="space-y-4 mb-10">
+                                    <li class="flex items-center gap-3 text-sm text-navy-deep/80 dark:text-slate-300">
+                                        <span
+                                            class="material-symbols-outlined text-primary text-[20px]">check_circle</span>
+                                        Демонтаж и перепланировка
+                                    </li>
+                                    <li class="flex items-center gap-3 text-sm text-navy-deep/80 dark:text-slate-300">
+                                        <span
+                                            class="material-symbols-outlined text-primary text-[20px]">check_circle</span>
+                                        Замена всех коммуникаций
+                                    </li>
+                                    <li class="flex items-center gap-3 text-sm text-navy-deep/80 dark:text-slate-300">
+                                        <span
+                                            class="material-symbols-outlined text-primary text-[20px]">check_circle</span>
+                                        Черновая отделка (выравнивание)
+                                    </li>
+                                    <li class="flex items-center gap-3 text-sm text-navy-deep/80 dark:text-slate-300">
+                                        <span
+                                            class="material-symbols-outlined text-primary text-[20px]">check_circle</span>
+                                        Финальная чистовая отделка
+                                    </li>
+                                </ul>
+                            </div>
+                            <button
+                                class="w-full py-4 rounded-xl bg-primary text-navy-deep font-bold shadow-lg shadow-primary/30 hover:shadow-xl transition-all">
+                                Выбрать пакет
+                            </button>
+                        </div>
+                        <!-- Card 3: Инженерные сети -->
+                        <div
+                            class="flex flex-col bg-white dark:bg-slate-900 rounded-xl p-8 shadow-sm border border-slate-100 dark:border-slate-800 hover:shadow-xl transition-shadow group">
+                            <div class="flex-1">
+                                <div class="mb-6">
+                                    <span
+                                        class="material-symbols-outlined text-primary text-4xl mb-4">settings_input_component</span>
+                                    <h3 class="text-navy-deep dark:text-white text-2xl font-bold mb-3">Инженерные сети
+                                    </h3>
+                                    <p class="text-steel-gray dark:text-slate-400 text-sm leading-relaxed">
+                                        Проектирование и монтаж скрытых систем электроснабжения, сантехники и отопления.
+                                    </p>
+                                </div>
+                                <div class="flex items-baseline gap-2 mb-8">
+                                    <span class="text-3xl font-black text-navy-deep dark:text-white">от 3 500 ₽</span>
+                                    <span class="text-steel-gray text-sm">/ м²</span>
+                                </div>
+                                <ul class="space-y-4 mb-10">
+                                    <li class="flex items-center gap-3 text-sm text-navy-deep/80 dark:text-slate-300">
+                                        <span
+                                            class="material-symbols-outlined text-primary text-[20px]">check_circle</span>
+                                        Электромонтажные работы
+                                    </li>
+                                    <li class="flex items-center gap-3 text-sm text-navy-deep/80 dark:text-slate-300">
+                                        <span
+                                            class="material-symbols-outlined text-primary text-[20px]">check_circle</span>
+                                        Системы водоснабжения
+                                    </li>
+                                    <li class="flex items-center gap-3 text-sm text-navy-deep/80 dark:text-slate-300">
+                                        <span
+                                            class="material-symbols-outlined text-primary text-[20px]">check_circle</span>
+                                        Монтаж радиаторов и теплого пола
+                                    </li>
+                                </ul>
+                            </div>
+                            <button
+                                class="w-full py-4 rounded-xl border-2 border-primary text-navy-deep dark:text-primary font-bold hover:bg-primary hover:text-navy-deep transition-all">
+                                Рассчитать
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Additional Services Row -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div
+                            class="flex items-center gap-4 bg-white dark:bg-slate-900 p-6 rounded-xl shadow-sm border border-slate-100 dark:border-slate-800 group cursor-pointer hover:border-primary transition-colors">
+                            <div class="bg-primary/10 p-3 rounded-lg group-hover:bg-primary transition-colors">
+                                <span
+                                    class="material-symbols-outlined text-primary group-hover:text-navy-deep">format_paint</span>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-navy-deep dark:text-white">Дизайн-проект</h4>
+                                <p class="text-xs text-steel-gray">Создадим уютный интерьер</p>
                             </div>
                         </div>
-                        <div class="group border-l-2 border-primary/40 hover:border-primary pl-4 transition-colors">
-                            <p class="text-white/40 text-[10px] uppercase font-bold mb-1">Адрес</p>
-                            <p class="text-lg font-medium text-white/90 leading-snug">
-                                г. Москва, ул. Примерная, 1<br />
-                                БЦ "Премиум", офис 402
+                        <div
+                            class="flex items-center gap-4 bg-white dark:bg-slate-900 p-6 rounded-xl shadow-sm border border-slate-100 dark:border-slate-800 group cursor-pointer hover:border-primary transition-colors">
+                            <div class="bg-primary/10 p-3 rounded-lg group-hover:bg-primary transition-colors">
+                                <span
+                                    class="material-symbols-outlined text-primary group-hover:text-navy-deep">verified_user</span>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-navy-deep dark:text-white">Приемка квартир</h4>
+                                <p class="text-xs text-steel-gray">Поможем найти дефекты</p>
+                            </div>
+                        </div>
+                        <div
+                            class="flex items-center gap-4 bg-white dark:bg-slate-900 p-6 rounded-xl shadow-sm border border-slate-100 dark:border-slate-800 group cursor-pointer hover:border-primary transition-colors">
+                            <div class="bg-primary/10 p-3 rounded-lg group-hover:bg-primary transition-colors">
+                                <span
+                                    class="material-symbols-outlined text-primary group-hover:text-navy-deep">layers</span>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-navy-deep dark:text-white">Натяжные потолки</h4>
+                                <p class="text-xs text-steel-gray">Монтаж за 1 день</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <div class="bg-navy-deep text-white py-12 px-6 lg:px-20 mt-12">
+                    <div class="max-w-[1400px] mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                        <div>
+                            <div class="text-primary text-4xl font-black mb-1">500+</div>
+                            <div class="text-slate-400 text-xs uppercase tracking-widest font-bold">Проектов сдано</div>
+                        </div>
+                        <div>
+                            <div class="text-primary text-4xl font-black mb-1">10 лет</div>
+                            <div class="text-slate-400 text-xs uppercase tracking-widest font-bold">Опыта на рынке</div>
+                        </div>
+                        <div>
+                            <div class="text-primary text-4xl font-black mb-1">2 года</div>
+                            <div class="text-slate-400 text-xs uppercase tracking-widest font-bold">Гарантии на работы
+                            </div>
+                        </div>
+                        <div>
+                            <div class="text-primary text-4xl font-black mb-1">150+</div>
+                            <div class="text-slate-400 text-xs uppercase tracking-widest font-bold">Специалистов</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="common-section">
+                <section class="relative w-full py-20 px-4 md:px-10 lg:px-20 xl:px-40 overflow-hidden">
+                    <div class="max-w-[1200px] mx-auto">
+                        <!-- Section Header -->
+                        <div class="text-center mb-16">
+                            <h2
+                                class="text-navy-deep dark:text-white text-3xl md:text-[36px] font-bold leading-tight mb-4">
+                                Почему нам доверяют 3000+ семей в Москве
+                            </h2>
+                            <p class="text-steel-gray dark:text-slate-400 text-lg font-normal max-w-2xl mx-auto">
+                                Надежный сервис для вашего дома: мы заботимся о каждой детали, чтобы вы могли
+                                наслаждаться чистотой
+                                и комфортом.
                             </p>
                         </div>
-                    </div>
-                </div>
-
-                <!-- Right: Telegram Action -->
-                <div class="flex flex-col items-center lg:items-end">
-                    <div
-                        class="bg-white/5 backdrop-blur-md rounded-2xl p-8 border border-white/10 w-full max-w-md text-center lg:text-right">
-                        <div
-                            class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-primary/20 text-primary mb-4">
-                            <span class="material-symbols-outlined text-3xl">send</span>
+                        <!-- Advantages Grid -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+                            <!-- Card 1: Юридическая гарантия -->
+                            <div
+                                class="bg-white dark:bg-slate-800 rounded-lg p-8 whisper-shadow border border-primary/5 flex flex-col items-center text-center transition-transform hover:-translate-y-1">
+                                <div
+                                    class="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center text-primary dark:text-primary/80 mb-6">
+                                    <span class="material-symbols-outlined text-[32px]">shield</span>
+                                </div>
+                                <h3 class="text-navy-deep dark:text-white text-xl font-semibold mb-3">Юридическая
+                                    гарантия
+                                </h3>
+                                <p class="text-steel-gray dark:text-slate-400 text-base leading-relaxed">
+                                    Ваша безопасность под защитой закона и официального договора.
+                                </p>
+                            </div>
+                            <!-- Card 2: Проверенный персонал -->
+                            <div
+                                class="bg-white dark:bg-slate-800 rounded-lg p-8 whisper-shadow border border-primary/5 flex flex-col items-center text-center transition-transform hover:-translate-y-1">
+                                <div
+                                    class="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center text-primary dark:text-primary/80 mb-6">
+                                    <span class="material-symbols-outlined text-[32px]">group</span>
+                                </div>
+                                <h3 class="text-navy-deep dark:text-white text-xl font-semibold mb-3">Проверенный
+                                    персонал
+                                </h3>
+                                <p class="text-steel-gray dark:text-slate-400 text-base leading-relaxed">
+                                    Каждый сотрудник прошел многоэтапный отбор и обучение.
+                                </p>
+                            </div>
+                            <!-- Card 3: Оплата по факту -->
+                            <div
+                                class="bg-white dark:bg-slate-800 rounded-lg p-8 whisper-shadow border border-primary/5 flex flex-col items-center text-center transition-transform hover:-translate-y-1">
+                                <div
+                                    class="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center text-primary dark:text-primary/80 mb-6">
+                                    <span class="material-symbols-outlined text-[32px]">account_balance_wallet</span>
+                                </div>
+                                <h3 class="text-navy-deep dark:text-white text-xl font-semibold mb-3">Оплата по факту
+                                </h3>
+                                <p class="text-steel-gray dark:text-slate-400 text-base leading-relaxed">
+                                    Вы платите только после завершения и проверки всех работ.
+                                </p>
+                            </div>
+                            <!-- Card 4: Премиальные материалы -->
+                            <div
+                                class="bg-white dark:bg-slate-800 rounded-lg p-8 whisper-shadow border border-primary/5 flex flex-col items-center text-center transition-transform hover:-translate-y-1">
+                                <div
+                                    class="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center text-primary dark:text-primary/80 mb-6">
+                                    <span class="material-symbols-outlined text-[32px]">star</span>
+                                </div>
+                                <h3 class="text-navy-deep dark:text-white text-xl font-semibold mb-3">Премиальные
+                                    материалы</h3>
+                                <p class="text-steel-gray dark:text-slate-400 text-base leading-relaxed">
+                                    Используем только сертифицированные гипоаллергенные средства.
+                                </p>
+                            </div>
                         </div>
-                        <h3 class="text-white text-xl font-bold mb-4">Пишите в Telegram</h3>
-                        <p class="text-white/60 text-sm mb-6">Персональный менеджер ответит вам в течение 5 минут</p>
-                        <a href="https://t.me/solution"
-                            class="inline-flex items-center justify-center gap-3 bg-primary hover:bg-primary/90 text-white font-bold py-3.5 px-8 rounded-xl transition-all w-full shadow-lg shadow-primary/20 hover:scale-[1.02]">
-                            <span>Написать сейчас</span>
-                            <span class="material-symbols-outlined text-sm">north_east</span>
-                        </a>
+                        <!-- Bottom Highlight Banner -->
+                        <div id="trust-section"
+                            class="bg-[#2A1B14] rounded-3xl p-6 md:p-10 flex flex-col md:flex-row items-center justify-between gap-6 transition-colors duration-500 border border-white/5 shadow-2xl">
+                            <div class="flex items-center gap-4">
+                                <div id="trust-icon-bg"
+                                    class="flex-shrink-0 w-12 h-12 bg-white/10 rounded-full flex items-center justify-center text-primary dark:text-primary/80 mb-6">
+                                    <span id="trust-icon"
+                                        class="material-symbols-outlined text-white text-[28px] transition-all font-bold">verified_user</span>
+                                </div>
+                                <div class="flex flex-col">
+                                    <p class="text-white text-lg md:text-xl font-medium leading-tight">
+                                        Работаем без предоплаты за все виды наших услуг.
+                                        <span class="block md:inline text-white/80 font-normal">100% материальная
+                                            ответственность.</span>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="md:ml-auto">
+                                <button id="trust-button"
+                                    class="bg-[#FCEA0E] text-[#222222] hover:opacity-90 px-8 py-3 rounded-full font-bold text-sm transition-all whitespace-nowrap shadow-lg shadow-[#FCEA0E]/20">
+                                    Заказать консультацию
+                                </button>
+                            </div>
+                        </div>
+                        <!-- Optional visual element -->
+                        <div class="absolute -bottom-20 -right-20 w-80 h-80 bg-[#FCEA0E]/5 rounded-full blur-3xl -z-10">
+                        </div>
+                        <div class="absolute -top-20 -left-20 w-80 h-80 bg-[#FCEA0E]/5 rounded-full blur-3xl -z-10">
+                        </div>
                     </div>
-                </div>
-            </div>
-        </div>
+                </section>
+                <section class="relative w-full overflow-hidden min-h-[500px] flex flex-col justify-between">
+                    <!-- Background Images Container -->
+                    <div class="absolute inset-0 z-0">
+                        <!-- BG Cleaning: Warm Brown Interior -->
+                        <div id="cleaning-footer-bg"
+                            class="absolute inset-0 transition-opacity duration-700 ease-in-out opacity-100">
+                            <img src="cleaning_footer_interior_warm.png" alt="Premium Interior"
+                                class="w-full h-full object-cover" />
+                            <!-- Stronger Warm Brown Gradient Overlays -->
+                            <div
+                                class="absolute inset-0 bg-gradient-to-r from-[#2A1B14] via-[#2A1B14]/90 to-[#2A1B14]/30">
+                            </div>
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-[#2A1B14] via-transparent to-transparent opacity-80">
+                            </div>
+                        </div>
 
-        <!-- Integrated Footer (At the bottom of the same container) -->
-        <div class="relative z-10 w-full border-t border-white/10">
-            <!-- Integrated Map & Footer Marker -->
-            <!-- Integrated Map & Footer -->
-            <div class="max-w-7xl mx-auto px-6 py-8 lg:px-8">
-                <div class="flex flex-col md:flex-row justify-between items-center gap-6">
-                    <div class="text-white/60 text-xs font-medium flex items-center gap-2">
-                        <span class="text-white font-bold tracking-tighter text-sm uppercase">Solution</span>
-                        <span>© 2024. Все права защищены.</span>
+                        <!-- BG Repair: Original Blue View -->
+                        <div id="building-footer-bg"
+                            class="absolute inset-0 transition-opacity duration-700 ease-in-out opacity-0">
+                            <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=2070&auto=format&fit=crop"
+                                alt="Premium Moscow City View"
+                                class="w-full h-full object-cover opacity-40 grayscale-[0.2]" />
+                            <!-- Stronger Blue Gradient Overlays to match Cleaning style -->
+                            <div
+                                class="absolute inset-0 bg-gradient-to-r from-[#1B2A4A] via-[#1B2A4A]/95 to-[#1B2A4A]/40">
+                            </div>
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-[#1B2A4A] via-transparent to-transparent opacity-70">
+                            </div>
+                        </div>
                     </div>
-                    <nav class="flex gap-x-6">
-                        <a href="#"
-                            class="text-white/40 hover:text-white text-[10px] uppercase font-bold tracking-widest transition-colors">Политика</a>
-                        <a href="#"
-                            class="text-white/40 hover:text-white text-[10px] uppercase font-bold tracking-widest transition-colors">Оферта</a>
-                        <a href="#"
-                            class="text-white/40 hover:text-white text-[10px] uppercase font-bold tracking-widest transition-colors">Реквизиты</a>
-                    </nav>
-                </div>
+
+                    <!-- Content Container -->
+                    <div
+                        class="relative z-10 max-w-7xl mx-auto px-6 py-16 lg:px-8 w-full flex-1 flex flex-col justify-center">
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                            <!-- Left: Contact Details -->
+                            <div class="flex flex-col space-y-8">
+                                <div>
+                                    <h2 class="text-3xl md:text-4xl font-black text-white mb-2 tracking-tight">Связаться
+                                        с нами</h2>
+                                    <p class="text-primary font-bold tracking-wide uppercase text-xs">Премиальный сервис
+                                        24/7</p>
+                                </div>
+
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                                    <div class="space-y-4">
+                                        <div
+                                            class="group border-l-2 border-primary/40 hover:border-primary pl-4 transition-colors">
+                                            <p class="text-white/40 text-[10px] uppercase font-bold mb-1">Телефон</p>
+                                            <a href="tel:+74955326009"
+                                                class="text-xl font-bold text-white hover:text-primary transition-colors">+7
+                                                (495)
+                                                532-60-09</a>
+                                        </div>
+                                        <div
+                                            class="group border-l-2 border-primary/40 hover:border-primary pl-4 transition-colors">
+                                            <p class="text-white/40 text-[10px] uppercase font-bold mb-1">Email</p>
+                                            <a href="mailto:info@solution-club.ru"
+                                                class="text-lg font-medium text-white/90 hover:text-[#FCEA0E] transition-colors">info@solution-club.ru</a>
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="group border-l-2 border-primary/40 hover:border-primary pl-4 transition-colors">
+                                        <p class="text-white/40 text-[10px] uppercase font-bold mb-1">Адрес</p>
+                                        <p class="text-lg font-medium text-white/90 leading-snug">
+                                            г. Москва, ул. Примерная, 1<br />
+                                            БЦ "Премиум", офис 402
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Right: Telegram Action -->
+                            <div class="flex flex-col items-center lg:items-end">
+                                <div
+                                    class="bg-white/5 backdrop-blur-md rounded-2xl p-8 border border-white/10 w-full max-w-md text-center lg:text-right">
+                                    <div
+                                        class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-primary/20 text-primary mb-4">
+                                        <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M22 2L11 13" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                            <path d="M22 2L15 22L11 13L2 9L22 2Z" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </div>
+                                    <h3 class="text-white text-xl font-bold mb-4">Пишите в Telegram</h3>
+                                    <p class="text-white/60 text-sm mb-6">Персональный менеджер ответит вам в течение 5
+                                        минут</p>
+                                    <a href="https://t.me/solution" id="telegram-button"
+                                        class="inline-flex items-center justify-center gap-3 bg-primary text-navy-deep dark:text-white font-bold py-3.5 px-8 rounded-xl transition-all w-full shadow-lg shadow-primary/20 hover:scale-[1.02]">
+                                        <span>Написать сейчас</span>
+                                        <svg id="telegram-icon-inner" class="w-4 h-4" viewBox="0 0 24 24" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M22 2L11 13" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                            <path d="M22 2L15 22L11 13L2 9L22 2Z" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Integrated Footer (At the bottom of the same container) -->
+                    <div class="relative z-10 w-full border-t border-white/10">
+                        <!-- Integrated Map & Footer Marker -->
+                        <!-- Integrated Map & Footer -->
+                        <div class="max-w-7xl mx-auto px-6 py-8 lg:px-8">
+                            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                                <div class="text-white/60 text-xs font-medium flex items-center gap-2">
+                                    <span
+                                        class="text-white font-bold tracking-tighter text-sm uppercase">Solution</span>
+                                    <span>© 2024. Все права защищены.</span>
+                                </div>
+                                <nav class="flex gap-x-6">
+                                    <a href="#"
+                                        class="text-white/40 hover:text-white text-[10px] uppercase font-bold tracking-widest transition-colors">Политика</a>
+                                    <a href="#"
+                                        class="text-white/40 hover:text-white text-[10px] uppercase font-bold tracking-widest transition-colors">Оферта</a>
+                                    <a href="#"
+                                        class="text-white/40 hover:text-white text-[10px] uppercase font-bold tracking-widest transition-colors">Реквизиты</a>
+                                </nav>
+                            </div>
+                        </div>
+                        <!-- End Integrated Map & Footer -->
+                    </div>
             </div>
-            <!-- End Integrated Map & Footer -->
-        </div>
+        </main>
+
     </div>
-    </main>
-
-</div>
 
     <script>
         function switchTab(tab) {
+            const body = document.body;
             const btnCleaning = document.getElementById('btn-cleaning');
             const btnBuilding = document.getElementById('btn-building');
-            
+
             const bgCleaning = document.getElementById('cleaning-bg');
             const bgBuilding = document.getElementById('building-bg');
-            
+
             const contentCleaning = document.getElementById('cleaning-content');
             const contentBuilding = document.getElementById('building-content');
-            
+
             const servicesCleaning = document.getElementById('cleaning-services');
             const servicesBuilding = document.getElementById('building-services');
 
             const trustIconBg = document.getElementById('trust-icon-bg');
             const trustIcon = document.getElementById('trust-icon');
             const trustButton = document.getElementById('trust-button');
+            const telegramButton = document.getElementById('telegram-button');
+            const telegramIconInner = document.getElementById('telegram-icon-inner');
+
+            const footerBgCleaning = document.getElementById('cleaning-footer-bg');
+            const footerBgBuilding = document.getElementById('building-footer-bg');
 
             if (tab === 'cleaning') {
-                document.documentElement.style.setProperty('--primary-color', '#2a9d90');
-                btnCleaning.className = "px-8 py-2.5 rounded-full bg-[#2a9d90] text-white text-sm font-bold shadow-lg transition-all duration-300 relative z-10";
+                body.classList.remove('theme-building');
+                body.classList.add('theme-cleaning');
+                document.documentElement.style.setProperty('--primary-color', '#FCEA0E');
+                btnCleaning.className = "px-8 py-2.5 rounded-full bg-[#FCEA0E] text-[#222222] text-sm font-bold shadow-lg transition-all duration-300 relative z-10";
                 btnBuilding.className = "px-8 py-2.5 rounded-full text-white/50 hover:text-white text-sm font-bold transition-all duration-300 relative z-10";
 
-                if (trustIconBg) trustIconBg.className = "flex-shrink-0 w-12 h-12 bg-[#2a9d90]/20 rounded-full flex items-center justify-center transition-all";
-                if (trustIcon) trustIcon.className = "material-symbols-outlined text-[#2a9d90] text-[24px] transition-all";
-                if (trustButton) trustButton.className = "bg-[#2a9d90] text-white hover:opacity-90 px-8 py-3 rounded-full font-bold text-sm transition-all whitespace-nowrap shadow-lg shadow-[#2a9d90]/20";
+                if (trustIconBg) trustIconBg.className = "flex-shrink-0 w-12 h-12 bg-[#FCEA0E]/20 rounded-full flex items-center justify-center transition-all";
+                if (trustIcon) trustIcon.className = "material-symbols-outlined text-[#FCEA0E] text-[24px] transition-all";
+                const trustSection = document.getElementById('trust-section');
+                if (trustSection) trustSection.style.backgroundColor = "#2A1B14";
+
+                if (trustButton) trustButton.className = "bg-[#FCEA0E] text-[#222222] hover:opacity-90 px-8 py-3 rounded-full font-bold text-sm transition-all whitespace-nowrap shadow-lg shadow-[#FCEA0E]/20";
+                if (telegramButton) telegramButton.className = "inline-flex items-center justify-center gap-3 bg-[#FCEA0E] text-[#222222] font-bold py-3.5 px-8 rounded-xl transition-all w-full shadow-lg shadow-[#FCEA0E]/20 hover:scale-[1.02]";
+
+                if (footerBgCleaning) footerBgCleaning.classList.replace('opacity-0', 'opacity-100');
+                if (footerBgBuilding) footerBgBuilding.classList.replace('opacity-100', 'opacity-0');
 
                 bgCleaning.classList.replace('opacity-0', 'opacity-100');
                 bgBuilding.classList.replace('opacity-100', 'opacity-0');
@@ -763,7 +1031,7 @@
                 contentCleaning.classList.add('opacity-100', 'translate-y-0', 'scale-100');
                 contentCleaning.setAttribute('aria-hidden', 'false');
                 contentCleaning.removeAttribute('inert');
-                
+
                 contentBuilding.classList.remove('opacity-100', 'translate-y-0', 'scale-100');
                 contentBuilding.classList.add('opacity-0', 'pointer-events-none', 'translate-y-4', 'scale-95');
                 contentBuilding.setAttribute('aria-hidden', 'true');
@@ -771,18 +1039,27 @@
 
                 servicesCleaning.classList.remove('hidden');
                 servicesCleaning.style.display = 'block';
-                
+
                 servicesBuilding.classList.add('hidden');
                 servicesBuilding.style.display = 'none';
 
             } else {
-                document.documentElement.style.setProperty('--primary-color', '#e8c468');
-                btnBuilding.className = "px-8 py-2.5 rounded-full bg-[#e8c468] text-[#1B2A4A] text-sm font-bold shadow-lg transition-all duration-300 relative z-10";
+                body.classList.remove('theme-cleaning');
+                body.classList.add('theme-building');
+                document.documentElement.style.setProperty('--primary-color', '#E30613');
+                btnBuilding.className = "px-8 py-2.5 rounded-full bg-[#E30613] text-white text-sm font-bold shadow-lg transition-all duration-300 relative z-10";
                 btnCleaning.className = "px-8 py-2.5 rounded-full text-white/50 hover:text-white text-sm font-bold transition-all duration-300 relative z-10";
 
-                if (trustIconBg) trustIconBg.className = "flex-shrink-0 w-12 h-12 bg-[#e8c468]/20 rounded-full flex items-center justify-center transition-all";
-                if (trustIcon) trustIcon.className = "material-symbols-outlined text-[#e8c468] text-[24px] transition-all";
-                if (trustButton) trustButton.className = "bg-[#e8c468] text-[#1B2A4A] hover:bg-[#d9b358] px-8 py-3 rounded-full font-bold text-sm transition-all whitespace-nowrap shadow-xl shadow-[#e8c468]/30";
+                if (trustIconBg) trustIconBg.className = "flex-shrink-0 w-12 h-12 bg-[#E30613]/20 rounded-full flex items-center justify-center transition-all";
+                if (trustIcon) trustIcon.className = "material-symbols-outlined text-[#E30613] text-[24px] transition-all";
+                const trustSection = document.getElementById('trust-section');
+                if (trustSection) trustSection.style.backgroundColor = "#1B2A4A";
+
+                if (trustButton) trustButton.className = "bg-[#E30613] text-white hover:bg-[#c20510] px-8 py-3 rounded-full font-bold text-sm transition-all whitespace-nowrap shadow-xl shadow-[#E30613]/30";
+                if (telegramButton) telegramButton.className = "inline-flex items-center justify-center gap-3 bg-[#E30613] text-white font-bold py-3.5 px-8 rounded-xl transition-all w-full shadow-lg shadow-[#E30613]/20 hover:scale-[1.02]";
+
+                if (footerBgBuilding) footerBgBuilding.classList.replace('opacity-0', 'opacity-100');
+                if (footerBgCleaning) footerBgCleaning.classList.replace('opacity-100', 'opacity-0');
 
                 bgBuilding.classList.replace('opacity-0', 'opacity-100');
                 bgCleaning.classList.replace('opacity-100', 'opacity-0');
@@ -791,7 +1068,7 @@
                 contentBuilding.classList.add('opacity-100', 'translate-y-0', 'scale-100');
                 contentBuilding.setAttribute('aria-hidden', 'false');
                 contentBuilding.removeAttribute('inert');
-                
+
                 contentCleaning.classList.remove('opacity-100', 'translate-y-0', 'scale-100');
                 contentCleaning.classList.add('opacity-0', 'pointer-events-none', 'translate-y-4', 'scale-95');
                 contentCleaning.setAttribute('aria-hidden', 'true');
@@ -799,11 +1076,13 @@
 
                 servicesCleaning.classList.add('hidden');
                 servicesCleaning.style.display = 'none';
-                
+
                 servicesBuilding.classList.remove('hidden');
                 servicesBuilding.style.display = 'block';
             }
         }
     </script>
-    
-</body></html>
+
+</body>
+
+</html>
