@@ -1,5 +1,7 @@
 # Stitch and temporary artifacts
 *.json
+!package.json
+!package-lock.json
 build.py
 test_build.py
 next-prompt.md
@@ -19,3 +21,4 @@ brain/
 *.log
 .DS_Store
 Thumbs.db
+node_modules/

@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+      --primary-color: #FCEA0E;
+  }
+
+  /* Системные цвета для тем */
+  .theme-cleaning {
+      --primary-color: #FCEA0E;
+      --text-on-primary: #222222;
+  }
+
+  .theme-building {
+      --primary-color: #E30613;
+      --text-on-primary: #FFFFFF;
+  }
+
+  .material-symbols-outlined {
+      width: 1em;
+      overflow: hidden;
+      white-space: nowrap;
+      color: transparent;
+  }
+
+  /* Показываем иконку только когда шрифт загружен */
+  .fonts-loaded .material-symbols-outlined {
+      color: inherit;
+  }
+
+  /* Для мгновенных иконок через SVG */
+  .icon-svg {
+      fill: currentColor;
+  }
+}
+
+@layer components {
+  /* Вспомогательный класс для контрастного текста на кнопках */
+  .btn-primary {
+      background-color: var(--primary-color);
+      color: var(--text-on-primary);
+  }
+
+  /* Нейтральная тень без синего оттенка */
+  .whisper-shadow {
+      box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.1);
+  }
+
+  .hover-whisper-shadow:hover {
+      box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.15);
+  }
+}

@@ -5,7 +5,6 @@
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
@@ -14,78 +13,86 @@
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=block"
         rel="stylesheet" />
 
-    <style>
-        :root {
-            --primary-color: #FCEA0E;
-        }
+    <link href="style.css" rel="stylesheet" />
 
-        /* Системные цвета для тем */
-        .theme-cleaning {
-            --primary-color: #FCEA0E;
-            --text-on-primary: #222222;
-        }
-
-        .theme-building {
-            --primary-color: #E30613;
-            --text-on-primary: #FFFFFF;
-        }
-
-        .material-symbols-outlined {
-            width: 1em;
-            overflow: hidden;
-            white-space: nowrap;
-            color: transparent;
-        }
-
-        /* Показываем иконку только когда шрифт загружен */
-        .fonts-loaded .material-symbols-outlined {
-            color: inherit;
-        }
-
-        /* Для мгновенных иконок через SVG */
-        .icon-svg {
-            fill: currentColor;
-        }
-
-        /* Вспомогательный класс для контрастного текста на кнопках */
-        .btn-primary {
-            background-color: var(--primary-color);
-            color: var(--text-on-primary);
-        }
-
-        /* Нейтральная тень без синего оттенка */
-        .whisper-shadow {
-            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.1);
-        }
-
-        .hover-whisper-shadow:hover {
-            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.15);
-        }
-    </style>
-
-    <script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "primary": "var(--primary-color, #FCEA0E)",
-                        "navy-deep": "#1B2A4A",
-                        "background-light": "#f6f8f8",
-                        "background-dark": "#131f1e",
-                        "cloud": "#F8F9FA"
-                    },
-                    fontFamily: { "display": ["Inter", "sans-serif"] },
-                    borderRadius: { "DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px" },
-                },
-            },
-        }
+    <script>
         // Ждем загрузки шрифтов
         document.fonts.ready.then(() => {
             document.documentElement.classList.add('fonts-loaded');
         });
     </script>
-    <title>SOLUTION Home Services</title>
+    <title>SOLUTION - Клининг и ремонт в Москве и МО</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Премиальный клининг и ремонт квартир, коттеджей и офисов в Москве и Московской области. Строительство и отделка под ключ. Гарантия качества, проверенные специалисты." />
+    <meta name="keywords" content="клининг Москва, уборка квартир, ремонт под ключ, ремонт квартир Москва, клининговая компания, строительство домов, отделка квартир, Московская область" />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="SOLUTION" />
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="SOLUTION - Премиальный клининг и ремонт в Москве и МО" />
+    <meta property="og:description" content="Комплексные услуги для вашего дома: от идеальной чистоты до капитального ремонта. Работаем в Москве и Московской области с гарантией качества." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://solution-club.ru" />
+    <meta property="og:image" content="https://images.unsplash.com/photo-1527030280862-64139fba04ca?q=80&w=1200&auto=format&fit=crop" />
+    <meta property="og:site_name" content="SOLUTION" />
+    <meta property="og:locale" content="ru_RU" />
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="SOLUTION - Премиальный клининг и ремонт" />
+    <meta name="twitter:description" content="Комплексные услуги для вашего дома: от идеальной чистоты до капитального ремонта. Москва и Московская область." />
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1527030280862-64139fba04ca?q=80&w=1200&auto=format&fit=crop" />
+
+    <!-- Schema.org JSON-LD LocalBusiness -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "HomeAndConstructionBusiness",
+      "name": "SOLUTION",
+      "image": "https://images.unsplash.com/photo-1527030280862-64139fba04ca?q=80&w=1200&auto=format&fit=crop",
+      "@id": "https://solution-club.ru",
+      "url": "https://solution-club.ru",
+      "telephone": "+74955326009",
+      "email": "info@solution-club.ru",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "ул. Центральная, д. 74",
+        "addressLocality": "Котеджный поселок Family club, д. Голиково, мкр-н Золотые купола",
+        "addressRegion": "Московская область",
+        "addressCountry": "RU"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 55.9389,
+        "longitude": 37.3135
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday"
+        ],
+        "opens": "00:00",
+        "closes": "23:59"
+      },
+      "priceRange": "$$",
+      "areaServed": {
+        "@type": "GeoCircle",
+        "geoMidpoint": {
+            "@type": "GeoCoordinates",
+            "latitude": 55.7558,
+            "longitude": 37.6173
+        },
+        "geoRadius": "50000"
+      }
+    }
+    </script>
 </head>
 
 <body
@@ -508,7 +515,7 @@
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                             <div class="rounded-2xl overflow-hidden group cursor-pointer">
                                 <div class="aspect-[4/3] bg-slate-100 relative">
-                                    <img alt="Luxury Apartment Renovation"
+                                    <img alt="Luxury Apartment Renovation" loading="lazy" decoding="async"
                                         class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                                         data-alt="Modern luxury minimalist apartment interior design"
                                         src="https://lh3.googleusercontent.com/aida-public/AB6AXuBT9ZtDtyaBQ8RQ7puURIytuGVqc-Lkya04EmhAxG1Z94VSmUDFKTqtfCAchC6PyU_hT8WWQczB_lpb-_PguxFAhN9xya4k210V1-I3JVT8EHKeimCJ_o1IxB1ey0EUUrpFK1zMH9dEJEl3uVJ7Tk3D6zJJxRX_ov6rkTjSmN61oGdw5pWoZeuzOMT5KUXBEWgLMiOzgSVcJN1_PsYOFOQ1iT5QLr1CpYqZ3szaPWnKHcHlOj03pauGaOPrmML3_-0nRXyrfQPE" />
@@ -520,7 +527,7 @@
                             </div>
                             <div class="rounded-2xl overflow-hidden group cursor-pointer">
                                 <div class="aspect-[4/3] bg-slate-100 relative">
-                                    <img alt="Villa Construction"
+                                    <img alt="Villa Construction" loading="lazy" decoding="async"
                                         class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                                         data-alt="Modern scandinavian style wooden villa architecture"
                                         src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXVy4aLtWf-WLkaLFWqu3jQVrkMrOKJEtv9aXKBseQ4CTrkdo_R5rtGHcfOe0a2GbuSZkRcVBJTROIHDoH1Q5GmhO1xe9Us84DJLXfRGLHWYaqwHvkIUF85QkpB-IUhfyU-Tnr_MfJJSgGzU-jvDoagjWzHSG9tazaBCBojnCQgpE3_I5LqP-BEATHtq0Lte02D6iMkFs2ay-691PRNHFE2SPpRmzn_63fyh9yaSDCcrpPt-t4m5HKd3aa4Yh3rVjbMjES5Dck" />
@@ -532,7 +539,7 @@
                             </div>
                             <div class="rounded-2xl overflow-hidden group cursor-pointer">
                                 <div class="aspect-[4/3] bg-slate-100 relative">
-                                    <img alt="Office Renovation"
+                                    <img alt="Office Renovation" loading="lazy" decoding="async"
                                         class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                                         data-alt="Sleek high-tech modern office space interior"
                                         src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8u1261ULZWVQMU3OCfnsiazm53K_sXx0JjBh2QzHEQxXLiFOwrYBJEOw7pEw-NfOEtIL0S8vSz9Embm6mGwfxOjv5Dq4Nqh_X1WoNjPjgHoiFcwpaODXiQzTHvTchfjH1HAASpiCVUtPXGFyc5PkToki9muC9apblUJIIRxbEY8Tljmq9OR__-hNBabgj9_5XHq0_m1f6P_uk0Up282IN_9eYZsZWLyyNx-4lxCt2f_sRhOp1Gdpqy9FGeIlrmMbM_s4S5xx0" />
@@ -853,7 +860,7 @@
                         <!-- BG Cleaning: Warm Brown Interior -->
                         <div id="cleaning-footer-bg"
                             class="absolute inset-0 transition-opacity duration-700 ease-in-out opacity-100">
-                            <img src="cleaning_footer_interior_warm.png" alt="Premium Interior"
+                            <img src="cleaning_footer_interior_warm.png" alt="Premium Interior" loading="lazy" decoding="async"
                                 class="w-full h-full object-cover" />
                             <!-- Stronger Warm Brown Gradient Overlays -->
                             <div
@@ -867,7 +874,7 @@
                         <!-- BG Repair: Original Blue View -->
                         <div id="building-footer-bg"
                             class="absolute inset-0 transition-opacity duration-700 ease-in-out opacity-0">
-                            <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=2070&auto=format&fit=crop"
+                            <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=2070&auto=format&fit=crop" loading="lazy" decoding="async"
                                 alt="Premium Moscow City View"
                                 class="w-full h-full object-cover opacity-40 grayscale-[0.2]" />
                             <!-- Stronger Blue Gradient Overlays to match Cleaning style -->
@@ -913,9 +920,11 @@
                                     <div
                                         class="group border-l-2 border-primary/40 hover:border-primary pl-4 transition-colors">
                                         <p class="text-white/40 text-[10px] uppercase font-bold mb-1">Адрес</p>
-                                        <p class="text-lg font-medium text-white/90 leading-snug">
-                                            г. Москва, ул. Примерная, 1<br />
-                                            БЦ "Премиум", офис 402
+                                        <p class="text-sm font-medium text-white/90 leading-snug">
+                                            Солнечногорский район,<br />
+                                            д. Голиково, мкр-н "Золотые купола",<br />
+                                            Котеджный поселок "Family club",<br />
+                                            ул. Центральная, д. 74
                                         </p>
                                     </div>
                                 </div>
