@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ru">
 
 <head>
@@ -898,24 +898,30 @@
                                     <span class="text-[11px] text-slate-500 dark:text-slate-400 block mt-1">Окончательная смета утверждается и фиксируется в договоре</span>
                                 </div>
 
-                                <div class="flex flex-col sm:flex-row items-center gap-3 w-full md:w-auto">
-                                    <!-- Кнопка Telegram с динамическим текстом заказа (Основное действие: сохранение сметы) -->
-                                    <a id="calc-telegram-btn" href="https://t.me/solution" target="_blank" rel="noopener noreferrer"
-                                        class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-[#FCEA0E] hover:bg-[#ecd908] text-[#222222] font-black px-7 py-4 rounded-xl shadow-lg shadow-[#FCEA0E]/20 transition-all text-xs md:text-sm">
-                                        <svg class="w-5 h-5 text-[#222222]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M22 2L11 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                            <path d="M22 2L15 22L11 13L2 9L22 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                        </svg>
-                                        <span>Заказать в Telegram</span>
-                                    </a>
+                                <div class="flex flex-col items-center md:items-end gap-2 w-full md:w-auto">
+                                    <div class="flex flex-col sm:flex-row items-center gap-3 w-full md:w-auto">
+                                        <!-- Кнопка Telegram с динамическим текстом заказа (Основное действие: сохранение сметы) -->
+                                        <a id="calc-telegram-btn" href="https://t.me/solution" target="_blank" rel="noopener noreferrer"
+                                            class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-[#FCEA0E] hover:bg-[#ecd908] text-[#222222] font-black px-7 py-4 rounded-xl shadow-lg shadow-[#FCEA0E]/20 transition-all text-xs md:text-sm">
+                                            <svg class="w-5 h-5 text-[#222222]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M22 2L11 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                                <path d="M22 2L15 22L11 13L2 9L22 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                            </svg>
+                                            <span>Заказать в Telegram</span>
+                                        </a>
 
-                                    <!-- Кнопка записи YClients (Альтернативное действие) -->
-                                    <a href="https://n2546655.yclients.com"
-                                        class="ms_booking w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-slate-100 hover:bg-slate-200 dark:bg-slate-700 dark:hover:bg-slate-600 text-slate-800 dark:text-slate-200 font-bold px-5 py-4 rounded-xl transition-all text-xs md:text-sm"
-                                        title="Или выбрать свободное время в базовом календаре">
-                                        <span class="material-symbols-outlined text-[18px]">calendar_month</span>
-                                        <span>Записаться онлайн</span>
-                                    </a>
+                                        <!-- Кнопка записи YClients (Альтернативное действие) -->
+                                        <a href="https://n2546655.yclients.com"
+                                            class="ms_booking w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-slate-100 hover:bg-slate-200 dark:bg-slate-700 dark:hover:bg-slate-600 text-slate-800 dark:text-slate-200 font-bold px-5 py-4 rounded-xl transition-all text-xs md:text-sm"
+                                            title="Или выбрать свободное время в базовом календаре">
+                                            <span class="material-symbols-outlined text-[18px]">calendar_month</span>
+                                            <span>Записаться онлайн</span>
+                                        </a>
+                                    </div>
+                                    <!-- Юридический дисклеймер 152-ФЗ / 38-ФЗ -->
+                                    <p class="text-[10px] text-slate-400 dark:text-slate-500 text-center md:text-right max-w-md leading-tight">
+                                        Нажимая кнопку, вы соглашаетесь с условиями <button type="button" onclick="openOfferModal()" class="underline hover:text-amber-500 transition-colors">Оферты</button> и даете <button type="button" onclick="openConsentModal()" class="underline hover:text-amber-500 transition-colors">Согласие на обработку ПДн</button> в соответствии с <button type="button" onclick="openPrivacyModal()" class="underline hover:text-amber-500 transition-colors">Политикой конфиденциальности</button>.
+                                    </p>
                                 </div>
                             </div>
 
@@ -1481,14 +1487,20 @@
 
                     <!-- Нижняя строка футера -->
                     <div class="relative z-10 w-full border-t border-white/10 bg-black/30">
-                        <div class="max-w-7xl mx-auto px-6 py-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-white/60">
-                            <div class="flex items-center gap-2">
+                        <div class="max-w-7xl mx-auto px-6 py-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-white/60">
+                            <div class="flex flex-col sm:flex-row items-center gap-2 text-center sm:text-left">
                                 <span class="text-white font-black tracking-wider text-sm uppercase">СОЛЮШИН</span>
-                                <span>© 2016–2026. Все права защищены.</span>
+                                <span>© 2023–2026 ООО «Солюшин» (ИНН 9714012424, ОГРН 1237700404292). Все права защищены.</span>
                             </div>
-                            <nav class="flex items-center gap-6">
+                            <nav class="flex flex-wrap justify-center items-center gap-4 sm:gap-6">
                                 <button type="button" onclick="openOfferModal()" class="hover:text-white transition-colors">
                                     Договор оферты
+                                </button>
+                                <button type="button" onclick="openPrivacyModal()" class="hover:text-white transition-colors">
+                                    Политика конфиденциальности
+                                </button>
+                                <button type="button" onclick="openConsentModal()" class="hover:text-white transition-colors">
+                                    Согласие на обработку ПДн
                                 </button>
                                 <a href="https://t.me/solution" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">
                                     Поддержка
@@ -1509,11 +1521,12 @@
     <!-- ===================================================================== -->
     <!-- 10. МОДАЛЬНОЕ ОКНО ДОГОВОРА ОФЕРТЫ (<dialog>)                        -->
     <!-- ===================================================================== -->
+    <!-- Модальное окно Публичной оферты (<dialog>) -->
     <dialog id="offer-modal" class="p-0 rounded-3xl max-w-2xl w-[92%] backdrop:bg-black/70 shadow-2xl overflow-hidden bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-200 focus:outline-none">
         <div class="flex items-center justify-between px-6 py-4 border-b border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-800/50">
             <div class="flex items-center gap-2">
                 <span class="material-symbols-outlined text-amber-500 text-[22px]">policy</span>
-                <h3 class="font-extrabold text-base md:text-lg text-navy-deep dark:text-white">Публичная оферта на оказание клининговых услуг</h3>
+                <h3 class="font-extrabold text-base md:text-lg text-navy-deep dark:text-white">Публичная оферта на оказание услуг клининга и ремонта</h3>
             </div>
             <button type="button" onclick="closeOfferModal()" class="w-8 h-8 rounded-full bg-slate-200 dark:bg-slate-700 hover:bg-slate-300 flex items-center justify-center text-slate-700 dark:text-slate-200 transition-colors">
                 ✕
@@ -1522,27 +1535,35 @@
         <div class="p-6 modal-scroll max-h-[65vh] overflow-y-auto space-y-4 text-xs leading-relaxed text-slate-600 dark:text-slate-300">
             <div>
                 <h4 class="font-bold text-sm text-navy-deep dark:text-white mb-1">1. Общие положения и акцепт</h4>
-                <p>Настоящий документ является официальным публичным предложением (офертой) сервиса «СОЛЮШИН» (далее — Исполнитель) заключить договор возмездного оказания услуг клининга на изложенных ниже условиях. Оформление заявки на сайте, в Telegram, по телефону или через систему YClients является полным и безоговорочным акцептом настоящей оферты.</p>
+                <p>Настоящий документ является официальным публичным предложением (публичной офертой по ст. 435 и 437 ГК РФ) <strong>Общества с ограниченной ответственностью «Солюшин»</strong> (ООО «Солюшин», ОГРН 1237700404292, ИНН 9714012424) заключить договор возмездного оказания услуг клининга, сервисного обслуживания и ремонтно-отделочных работ на изложенных ниже условиях. Оформление заявки на Сайте, бронирование через систему YClients, диалог в Telegram (@solution) или телефонный звонок является полным и безоговорочным акцептом настоящей оферты (ст. 438 ГК РФ).</p>
             </div>
             <div>
-                <h4 class="font-bold text-sm text-navy-deep dark:text-white mb-1">2. Предмет договора</h4>
-                <p>Исполнитель обязуется оказать Заказчику услуги по комплексной поддерживающей, генеральной, послеремонтной уборке жилых и нежилых помещений, а также сопутствующие услуги (мытье окон, глажка, химчистка), а Заказчик обязуется принять и оплатить оказанные услуги в соответствии с согласованными тарифами.</p>
+                <h4 class="font-bold text-sm text-navy-deep dark:text-white mb-1">2. Предмет договора и состав услуг</h4>
+                <p>Исполнитель обязуется оказать Заказчику услуги по комплексной поддерживающей уборке («Помощница по дому»), генеральной уборке, уборке после строительно-отделочных работ, мытью остекления, чистке бытовой техники, химчистке мебели, а также мелким бытовым ремонтным работам, а Заказчик обязуется принять и оплатить оказанные услуги в соответствии с согласованными тарифами.</p>
             </div>
             <div>
-                <h4 class="font-bold text-sm text-navy-deep dark:text-white mb-1">3. 100% Материальная ответственность</h4>
-                <p>Исполнитель несет полную материальную ответственность за сохранность имущества Заказчика в период оказания услуг. В случае документально подтвержденного непреднамеренного повреждения имущества сотрудниками Исполнителя, ущерб компенсируется в полном объеме либо устраняется за счет Исполнителя.</p>
+                <h4 class="font-bold text-sm text-navy-deep dark:text-white mb-1">3. Стоимость услуг и гарантия твердой сметы</h4>
+                <p>Поддерживающая уборка оплачивается строго по факту завершения работ по утвержденной сетке. Для генеральной уборки и уборки после ремонта смета согласуется и фиксируется до начала выполнения работ на объекте. <strong>Исполнителю категорически запрещается в одностороннем порядке повышать стоимость в процессе выполнения работ.</strong> Дополнительные работы выполняются исключительно по добровольному согласованию с Заказчиком.</p>
             </div>
             <div>
-                <h4 class="font-bold text-sm text-navy-deep dark:text-white mb-1">4. Порядок сдачи-приемки и регламент 3 часов</h4>
-                <p>Сдача результата уборки осуществляется на объекте либо дистанционно по подробному фото/видеоотчету менеджера. Заказчик имеет 3 (три) часа с момента завершения уборки на осмотр и направление замечаний. Все обоснованные замечания устраняются бесплатно и в кратчайшие согласованные сроки.</p>
+                <h4 class="font-bold text-sm text-navy-deep dark:text-white mb-1">4. 100% Материальная ответственность</h4>
+                <p>Исполнитель несет полную (100%) материальную ответственность за сохранность отделочных материалов, мебели, сантехники и элементов интерьера Заказчика на объекте в период оказания услуг (ст. 15, 393, 1064 ГК РФ). При документально подтвержденном непреднамеренном повреждении имущества ущерб компенсируется в полном объеме (профессиональная реставрация либо выплата рыночной стоимости с учетом износа в течение 10 рабочих дней).</p>
             </div>
             <div>
-                <h4 class="font-bold text-sm text-navy-deep dark:text-white mb-1">5. Оплата и фиксированная стоимость</h4>
-                <p>Поддерживающая уборка оплачивается строго по факту сдачи работ. Для генеральной уборки и уборки после ремонта смета фиксируется до начала работ и не подлежит изменению в процессе уборки без дополнительного письменного согласования с Заказчиком.</p>
+                <h4 class="font-bold text-sm text-navy-deep dark:text-white mb-1">5. Порядок сдачи-приемки и регламент 3 часов на замечания</h4>
+                <p>Сдача работ осуществляется на объекте либо дистанционно по детальному фото/видеоотчету менеджера в мессенджере. <strong>Заказчик имеет 3 (три) часа с момента фактического окончания уборки и уведомления на осмотр и направление мотивированных замечаний по качеству.</strong> Все обоснованные замечания в рамках регламента 3 часов устраняются Исполнителем бесплатно в кратчайшие согласованные сроки (не позднее 24 часов). По истечении 3 часов при отсутствии замечаний услуги считаются принятыми в полном объеме и надлежащего качества (ст. 720 ГК РФ).</p>
             </div>
             <div>
-                <h4 class="font-bold text-sm text-navy-deep dark:text-white mb-1">6. Контакты и реквизиты</h4>
-                <p>Сервис «СОЛЮШИН»<br />г. Москва, Ленинградский пр-т, 35, стр. 2 (БЦ «Искра-Парк»)<br />Тел.: +7 (929) 572-08-14 | Email: info@solution-club.ru</p>
+                <h4 class="font-bold text-sm text-navy-deep dark:text-white mb-1">6. Полные официальные реквизиты Исполнителя</h4>
+                <div class="bg-slate-50 dark:bg-slate-800/80 p-3 rounded-xl border border-slate-200 dark:border-slate-700 text-[11px] leading-normal space-y-1">
+                    <p><strong>ООО «Солюшин»</strong> | ОГРН: 1237700404292 (от 13.06.2023, МИФНС № 46 по г. Москве)</p>
+                    <p><strong>ИНН:</strong> 9714012424 | <strong>КПП:</strong> 771401001</p>
+                    <p><strong>Юр. адрес:</strong> 125284, г. Москва, Ленинградский пр-кт, д. 35, стр. 2, помещ. 189 (БЦ «Искра-Парк»)</p>
+                    <p><strong>Генеральный директор:</strong> Евсеенков Владимир Владимирович</p>
+                    <p><strong>Банк:</strong> ПАО Сбербанк | <strong>Р/с:</strong> 40702810338000117196</p>
+                    <p><strong>БИК:</strong> 044525225 | <strong>К/с:</strong> 30101810400000000225</p>
+                    <p><strong>Тел.:</strong> +7 (495) 532-60-09, +7 (929) 572-08-14 | <strong>Email:</strong> info@solution-club.ru</p>
+                </div>
             </div>
         </div>
         <div class="px-6 py-4 border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-800/50 flex justify-end">
@@ -1551,6 +1572,102 @@
             </button>
         </div>
     </dialog>
+
+    <!-- Модальное окно Политики обработки персональных данных (<dialog>) -->
+    <dialog id="privacy-modal" class="p-0 rounded-3xl max-w-2xl w-[92%] backdrop:bg-black/70 shadow-2xl overflow-hidden bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-200 focus:outline-none">
+        <div class="flex items-center justify-between px-6 py-4 border-b border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-800/50">
+            <div class="flex items-center gap-2">
+                <span class="material-symbols-outlined text-amber-500 text-[22px]">shield_person</span>
+                <h3 class="font-extrabold text-base md:text-lg text-navy-deep dark:text-white">Политика обработки персональных данных</h3>
+            </div>
+            <button type="button" onclick="closePrivacyModal()" class="w-8 h-8 rounded-full bg-slate-200 dark:bg-slate-700 hover:bg-slate-300 flex items-center justify-center text-slate-700 dark:text-slate-200 transition-colors">
+                ✕
+            </button>
+        </div>
+        <div class="p-6 modal-scroll max-h-[65vh] overflow-y-auto space-y-4 text-xs leading-relaxed text-slate-600 dark:text-slate-300">
+            <div>
+                <h4 class="font-bold text-sm text-navy-deep dark:text-white mb-1">1. Статус оператора и правовые основания</h4>
+                <p>Оператором персональных данных является <strong>ООО «Солюшин»</strong> (ИНН 9714012424, ОГРН 1237700404292). Обработка осуществляется в соответствии с Конституцией РФ, ст. 18.1 Федерального закона от 27.07.2006 № 152-ФЗ «О персональных данных», нормами ГК РФ и Закона о защите прав потребителей.</p>
+            </div>
+            <div>
+                <h4 class="font-bold text-sm text-navy-deep dark:text-white mb-1">2. Состав и цели обработки данных</h4>
+                <ul class="list-disc pl-5 space-y-1">
+                    <li><strong>Исполнение договора-оферты:</strong> ФИО, контактный телефон, адрес объекта уборки, параметры помещений и сметы, даты визитов специалистов.</li>
+                    <li><strong>Коммуникация и расчет сметы:</strong> данные, направляемые пользователем через калькулятор и мессенджер Telegram (@solution).</li>
+                    <li><strong>Контроль качества (NPS):</strong> отзывы, оценки и акты по условиям 100% материальной ответственности и регламента 3 часов.</li>
+                    <li><strong>Техническая работа сайта:</strong> сетевой IP-адрес, файлы cookie, User-Agent браузера.</li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold text-sm text-navy-deep dark:text-white mb-1">3. Локализация и привлечение третьих лиц</h4>
+                <p>Все базы данных локализованы на сертифицированных серверах на территории Российской Федерации (ч. 5 ст. 18 152-ФЗ). Обработка бронирований осуществляется с привлечением аттестованной платформы ООО «Уайклиентс» (YClients, ИНН 7725298130). Клинеры компании получают контактные данные исключительно на период выполнения заказа.</p>
+            </div>
+            <div>
+                <h4 class="font-bold text-sm text-navy-deep dark:text-white mb-1">4. Сроки хранения и порядок отзыва согласия</h4>
+                <p>Данные хранятся в течение срока действия договора плюс 3 года (исковая давность) и 5 лет для налогового учета. Субъект имеет право отозвать согласие в любое время, направив запрос на email <strong>info@solution-club.ru</strong> или почтовым отправлением по юридическому адресу компании. Срок прекращения обработки и уничтожения — до 30 календарных дней.</p>
+            </div>
+            <div class="bg-slate-50 dark:bg-slate-800/80 p-3 rounded-xl border border-slate-200 dark:border-slate-700 text-[11px]">
+                <p>Полная версия документа доступна в репозитории: <code>docs/solution-club/docs/PRIVACY_POLICY.md</code>.</p>
+            </div>
+        </div>
+        <div class="px-6 py-4 border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-800/50 flex justify-end">
+            <button type="button" onclick="closePrivacyModal()" class="px-6 py-2.5 rounded-xl bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-bold text-xs hover:opacity-90 transition-all">
+                Понятно, закрыть
+            </button>
+        </div>
+    </dialog>
+
+    <!-- Модальное окно Согласия на обработку персональных данных (<dialog>) -->
+    <dialog id="consent-modal" class="p-0 rounded-3xl max-w-2xl w-[92%] backdrop:bg-black/70 shadow-2xl overflow-hidden bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-200 focus:outline-none">
+        <div class="flex items-center justify-between px-6 py-4 border-b border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-800/50">
+            <div class="flex items-center gap-2">
+                <span class="material-symbols-outlined text-amber-500 text-[22px]">assignment_turned_in</span>
+                <h3 class="font-extrabold text-base md:text-lg text-navy-deep dark:text-white">Согласие на обработку персональных данных</h3>
+            </div>
+            <button type="button" onclick="closeConsentModal()" class="w-8 h-8 rounded-full bg-slate-200 dark:bg-slate-700 hover:bg-slate-300 flex items-center justify-center text-slate-700 dark:text-slate-200 transition-colors">
+                ✕
+            </button>
+        </div>
+        <div class="p-6 modal-scroll max-h-[65vh] overflow-y-auto space-y-4 text-xs leading-relaxed text-slate-600 dark:text-slate-300">
+            <div>
+                <h4 class="font-bold text-sm text-navy-deep dark:text-white mb-1">1. Предоставление согласия</h4>
+                <p>Настоящим Пользователь подтверждает свою дееспособность и дает конкретное, предметное, информированное, сознательное и однозначное согласие <strong>ООО «Солюшин»</strong> (ИНН 9714012424, ОГРН 1237700404292) на обработку своих персональных данных при нажатии кнопок «Заказать в Telegram», «Записаться онлайн», при заполнении форм YClients или направлении сообщений менеджеру.</p>
+            </div>
+            <div>
+                <h4 class="font-bold text-sm text-navy-deep dark:text-white mb-1">2. Перечень обрабатываемых данных</h4>
+                <p>ФИО, контактный телефон, email, адрес объекта уборки, параметры комнат и опций сметы, метаданные сессии и файлы cookie.</p>
+            </div>
+            <div>
+                <h4 class="font-bold text-sm text-navy-deep dark:text-white mb-1">3. Сервисные уведомления без спама (ст. 18 38-ФЗ)</h4>
+                <p>Компания не осуществляет спам-рассылок. Пользователь соглашается исключительно на получение сервисных сообщений по заказу и напоминаний по циклу ухода за домом (на 16–18 день). Отказ от уведомлений доступен в 1 клик по ответу «Стоп» или письму на info@solution-club.ru.</p>
+            </div>
+            <div>
+                <h4 class="font-bold text-sm text-navy-deep dark:text-white mb-1">4. Отзыв согласия</h4>
+                <p>Согласие может быть отозвано в любой момент направлением заявления на email <strong>info@solution-club.ru</strong> с уничтожением данных в срок до 30 дней.</p>
+            </div>
+        </div>
+        <div class="px-6 py-4 border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-800/50 flex justify-end">
+            <button type="button" onclick="closeConsentModal()" class="px-6 py-2.5 rounded-xl bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-bold text-xs hover:opacity-90 transition-all">
+                Понятно, закрыть
+            </button>
+        </div>
+    </dialog>
+
+    <!-- Плавающий Cookie-баннер (Consent Banner) -->
+    <div id="cookie-banner" class="fixed bottom-4 left-4 right-4 md:left-8 md:right-auto md:max-w-md z-50 p-4 bg-slate-900/95 text-white backdrop-blur-md rounded-2xl shadow-2xl border border-white/15 flex flex-col gap-3 transition-transform duration-300 translate-y-32 opacity-0 pointer-events-none">
+        <div class="flex items-start gap-3">
+            <span class="material-symbols-outlined text-amber-400 text-2xl flex-shrink-0">cookie</span>
+            <p class="text-xs text-slate-300 leading-relaxed">
+                Мы используем файлы cookie и аналитику для корректной работы сайта и виджета онлайн-записи. Оставаясь на сайте, вы соглашаетесь с 
+                <button type="button" onclick="openPrivacyModal()" class="text-amber-400 underline hover:text-amber-300">Политикой конфиденциальности</button>.
+            </p>
+        </div>
+        <div class="flex items-center justify-end gap-2">
+            <button type="button" onclick="acceptCookies()" class="bg-[#FCEA0E] hover:bg-[#ebda0a] text-slate-900 font-extrabold text-xs px-4 py-2 rounded-xl transition-all shadow-md">
+                Принять и продолжить
+            </button>
+        </div>
+    </div>
 
     <!-- ===================================================================== -->
     <!-- 11. СЦЕНАРИИ И ЛОГИКА (JAVASCRIPT)                                    -->
@@ -1897,39 +2014,79 @@
         }
 
         // -------------------------------------------------------------------------
-        // 5. Модальное окно публичной оферты
+        // 5. Управление юридическими модальными окнами (152-ФЗ / Оферта)
         // -------------------------------------------------------------------------
         function openOfferModal() {
             const modal = document.getElementById('offer-modal');
-            if (modal) {
-                modal.showModal();
-            }
+            if (modal) modal.showModal();
         }
-
         function closeOfferModal() {
             const modal = document.getElementById('offer-modal');
-            if (modal) {
-                modal.close();
+            if (modal) modal.close();
+        }
+
+        function openPrivacyModal() {
+            const modal = document.getElementById('privacy-modal');
+            if (modal) modal.showModal();
+        }
+        function closePrivacyModal() {
+            const modal = document.getElementById('privacy-modal');
+            if (modal) modal.close();
+        }
+
+        function openConsentModal() {
+            const modal = document.getElementById('consent-modal');
+            if (modal) modal.showModal();
+        }
+        function closeConsentModal() {
+            const modal = document.getElementById('consent-modal');
+            if (modal) modal.close();
+        }
+
+        // -------------------------------------------------------------------------
+        // 6. Управление Cookie-баннером (Consent Banner)
+        // -------------------------------------------------------------------------
+        function initCookieBanner() {
+            const banner = document.getElementById('cookie-banner');
+            if (!localStorage.getItem('solution_cookie_accepted')) {
+                setTimeout(() => {
+                    if (banner) {
+                        banner.classList.remove('translate-y-32', 'opacity-0', 'pointer-events-none');
+                    }
+                }, 1200);
             }
         }
 
-        // Закрытие диалога по клику на backdrop
-        document.addEventListener('DOMContentLoaded', () => {
-            const modal = document.getElementById('offer-modal');
-            if (modal) {
-                modal.addEventListener('click', (e) => {
-                    const rect = modal.getBoundingClientRect();
-                    const isInDialog = (
-                        rect.top <= e.clientY &&
-                        e.clientY <= rect.top + rect.height &&
-                        rect.left <= e.clientX &&
-                        e.clientX <= rect.left + rect.width
-                    );
-                    if (!isInDialog) {
-                        modal.close();
-                    }
-                });
+        function acceptCookies() {
+            const banner = document.getElementById('cookie-banner');
+            localStorage.setItem('solution_cookie_accepted', 'true');
+            if (banner) {
+                banner.classList.add('translate-y-32', 'opacity-0', 'pointer-events-none');
             }
+        }
+
+        // Закрытие диалогов по клику на backdrop и инициализация
+        document.addEventListener('DOMContentLoaded', () => {
+            const dialogIds = ['offer-modal', 'privacy-modal', 'consent-modal'];
+            dialogIds.forEach(id => {
+                const modal = document.getElementById(id);
+                if (modal) {
+                    modal.addEventListener('click', (e) => {
+                        const rect = modal.getBoundingClientRect();
+                        const isInDialog = (
+                            rect.top <= e.clientY &&
+                            e.clientY <= rect.top + rect.height &&
+                            rect.left <= e.clientX &&
+                            e.clientX <= rect.left + rect.width
+                        );
+                        if (!isInDialog) {
+                            modal.close();
+                        }
+                    });
+                }
+            });
+
+            initCookieBanner();
             calcTotal();
         });
     </script>
