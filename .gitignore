@@ -17,5 +17,7 @@ site/public/trust-block.html
 .agents/
 brain/
 *.log
+*.bak
+*.bak*
 .DS_Store
 Thumbs.db
